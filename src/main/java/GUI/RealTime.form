@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.RealTime">
+  <grid id="27dc6" binding="panel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="1e63a" class="javax.swing.JLabel" binding="DateTime">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <text value="Label"/>
+        </properties>
+      </component>
+      <component id="dac67" class="javax.swing.JLabel">
+        <constraints border-constraint="West"/>
+        <properties>
+          <text value="real time"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

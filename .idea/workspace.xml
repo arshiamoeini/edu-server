@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2f348a1a-5491-4bc2-ab5d-f0f8118f0bd1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_8_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_6_8_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/UserAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Capcha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CapchaGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CellPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/DemoList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableDemoList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableSubjectsList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Login.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginTemp.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NormalUserPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/PanelDesigner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/recordsList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RequestMenuPanelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RealTime.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RealTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RequestMenuPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SelectMenuHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentMenus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SubjectsList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Updatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/BachelorStudentTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/CampusChairmenTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/ContainMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/CourseTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/EducationalAssistantTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/GraduateStudentTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/PhDStudentTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/ProfessorTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/University.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/CapchaConfigured.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/ConfigHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/Configured.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/BachelorStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/CampusChairmen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/EducationalAssistant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/EducationalStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Faculty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/GraduateStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/PhDStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Professor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/UserTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/AuthTokenGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/ConstructorData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Identifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/LoginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/capcha image/3190.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/faculties.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/111" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/112" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/1234" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/university.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/untitled1.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="com.haulmont.jpb.JpaEntity" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2CjeHEhz6FKp1QNFIQOIi9qJBJU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/arshia/IdeaProjects/untitled1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.ServerMain">
+    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ClientMain" />
+      <module name="untitled1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.ServerMain" />
+      <module name="untitled1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.ClientMain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f348a1a-5491-4bc2-ab5d-f0f8118f0bd1" name="Changes" comment="" />
+      <created>1659320344492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659320344492</updated>
+    </task>
+    <task id="LOCAL-00001" summary="lot of work">
+      <created>1659523357114</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659523357114</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="https://github.com/arshiamoeini/edu-server.git" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="https://github.com/arshiamoeini/edu-server.git" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="lot of work" />
+    <option name="LAST_COMMIT_MESSAGE" value="lot of work" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/client/Client.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/client/Client.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/client/Pulsator.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.concurrent.FutureTask" memberName="state" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
