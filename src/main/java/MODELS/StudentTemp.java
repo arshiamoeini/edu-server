@@ -42,11 +42,11 @@ public class StudentTemp extends UserTemp {
     public ProfessorTemp getSupervisor() {
         return Supervisor;
     }
-    public ArrayList<Classroom.classRating> getRegisteredRecords() {
-        ArrayList<Classroom.classRating> ans = new ArrayList<>();
+    public ArrayList<ClassroomTemp.classRating> getRegisteredRecords() {
+        ArrayList<ClassroomTemp.classRating> ans = new ArrayList<>();
         FacultyTemp faculty = getFaculty();
         for (int classroomID: weeklyClassesID) {
-            Classroom classroom = faculty.getClassroom(classroomID);
+            ClassroomTemp classroom = faculty.getClassroom(classroomID);
             if (classroom.isRegistered()) {
                 ans.add(classroom.getRatingWithID(getId()));
             }

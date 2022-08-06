@@ -27,7 +27,13 @@ public class Client implements Sender {
     Pulsator client;
     MainFrame frame;
     Gson gson;
-    private Identifier passDate;
+    Runnable logout = () -> {
+
+    };
+    Scanner scanner;
+    private ResponseHandler responseHandler;
+
+    private Identifier passDate = new Identifier("1003", "hello");
     private Callable<LoginResult> connectSocket = () -> {
         try {
             socket = new Socket("localhost", 8000); //TODO config
@@ -43,11 +49,10 @@ public class Client implements Sender {
     };
     private Callable<LoginResult> catchLoginResult = () -> {
     //    System.out.println("im here");
-        Scanner scanner = new Scanner(in);
+        scanner = new Scanner(in);
     //    authToken = scanner.nextLine();
         return LoginResult.valueOf(scanner.nextLine());
     };
-
     public Client()  {
         frame = new MainFrame();
     }
@@ -65,7 +70,11 @@ public class Client implements Sender {
         gson = gsonBuilder.create();
         System.out.println("client created");
         Login.setInstance(this::login);
-        frame.setContentPanel(Login.getInstance());//this::login));
+        if (passDate != null) {
+            login(passDate);
+        } else {
+            frame.setContentPanel(Login.getInstance());//this::login));
+        }
     }
 
     public static Client getInstance() {
@@ -74,7 +83,12 @@ public class Client implements Sender {
 
     public LoginResult login(Identifier date) {
         LoginResult result = tryToConnectServer(date);
-        if (result == LoginResult.PASS) enterMainPage(date);
+        if (result == LoginResult.PASS) {
+            authToken = scanner.nextLine();
+            enterMainPage(scanner.nextLine(), date);
+            startListeningToServer();
+            System.out.println(authToken);
+        }
         return result;
 
  /*
@@ -102,6 +116,11 @@ public class Client implements Sender {
         return null;*/
     }
 
+    private void startListeningToServer() {
+        responseHandler = new ResponseHandler(in);
+        responseHandler.start();
+    }
+
     private LoginResult tryToConnectServer(Identifier date) {
         try {
             LoginResult result = connectSocket.call(); // have exception
@@ -114,12 +133,10 @@ public class Client implements Sender {
         }
     }
 
-    private void enterMainPage(Identifier date) {
-        Scanner scanner = new Scanner(in);
-        authToken = scanner.nextLine();
-        frame.enterMainPage(gson.fromJson(scanner.nextLine(), ConstructorData.class));
-        System.out.println(authToken);
+    private void enterMainPage(String constructorData, Identifier date) {
         passDate = date;
+        frame.enterMainPage(gson.fromJson(constructorData, ConstructorData.class),
+                passDate.getUserID());
     }
 
     private void sendObject(Object date) {
@@ -144,15 +161,16 @@ public class Client implements Sender {
     }
 
     @Override
-    public synchronized void send(Object... args) {
-        if (args.length == 1) {
-            sendObject(new Request((RequestType) args[0]));
+    public synchronized void send(RequestType type, Object... args) {
+        out.println(authToken);
+        if (args.length == 0) {
+            sendObject(new Request(type));
         } else {
             ArrayList<String> data = new ArrayList<>();
-            for (int i = 1; i < args.length; i++) {
+            for (int i = 0; i < args.length; i++) {
                 data.add(gson.toJson(args[i]));
             }
-            sendObject(new Request((RequestType) args[0], data));
+            sendObject(new Request(type, data));
         }
     }
 }

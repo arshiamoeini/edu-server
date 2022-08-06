@@ -1,11 +1,9 @@
 package GUI;
 
 import client.Pulsator;
-import database.User;
 import shared.UserType;
 
 import javax.swing.*;
-import java.awt.*;
 import java.time.LocalDateTime;
 
 public class MainPage implements PanelDesigner {
@@ -15,12 +13,14 @@ public class MainPage implements PanelDesigner {
     private RealTime realTime;
     private JLabel lastSubmmition;
     private JPanel out;
+    private JButton outButton;
     ManePagePanelFactory factory = new ManePagePanelFactory();
     private static Runnable goOut;
     public MainPage(Runnable goOut) {
         this.goOut = goOut;
         lastSubmmition.setText(RealTime.dateAndTime(LocalDateTime.now()));
 
+        UserConstantInformation.getInstance().setOutField(out, outButton);
         UserType userType = UserConstantInformation.getInstance().getUserType();
         pane.add(factory.build(userType, out).getPanel());
     }
@@ -30,12 +30,10 @@ public class MainPage implements PanelDesigner {
         return pane;
     }
 
-    public static JButton getOutButton() {
-        JButton button = new JButton("out"); //TODO Config
-        button.addActionListener(e -> {
-            Pulsator.getInstance().interrupt();
-            goOut.run();
-        });
-        return button;
+    public static void setOutButtonToLogOut() {
+        UserConstantInformation.getInstance().setOutButton("out", e -> {
+                Pulsator.getInstance().interrupt();
+                goOut.run();
+            } ); //TODO Config
     }
 }

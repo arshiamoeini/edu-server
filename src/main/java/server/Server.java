@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import database.Database;
 import shared.Identifier;
 import shared.LoginResult;
+import shared.Response;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +13,11 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 public class Server {
     private static final int PORT = 8000; //TODO Config
@@ -33,6 +36,7 @@ public class Server {
     public Server() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
+        ChainHandelResponsibility.build(this);
     }
     public void start() {
         try {
@@ -91,6 +95,18 @@ public class Server {
     public synchronized int addClientOut(PrintWriter writer) {
         clientOuts.add(writer);
         return clientOuts.size() - 1;
+    }
+
+    public void send(int id, Object... data) {
+        if (data.length != 0) {
+            System.out.println("sadf");
+        }
+    //    ArrayList<String> strOfData = new ArrayList<>();
+     //   for (Object obj: data) strOfData.add(gson.toJson(obj));
+        PrintWriter out = clientOuts.get(id);
+        String message = gson.toJson(new Response(data));
+        out.println(message);
+        out.flush();
     }
 
   /*  private boolean is(int idOfGame) {

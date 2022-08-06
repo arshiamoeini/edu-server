@@ -1,5 +1,7 @@
 package client;
 
+import shared.RequestType;
+
 public interface Sender {
-    void send(Object... args);
+    void send(RequestType type, Object... args);
 }

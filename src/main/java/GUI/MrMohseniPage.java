@@ -1,8 +1,10 @@
 package GUI;
 
+import com.google.gson.Gson;
 import shared.RequestType;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class MrMohseniPage implements MainPagePanel {
     public MrMohseniPage(JPanel out) {
@@ -21,5 +23,10 @@ public class MrMohseniPage implements MainPagePanel {
     @Override
     public JPanel getPanel() {
         return null;
+    }
+
+    @Override
+    public void update(ArrayList<String> data, Gson gson) {
+        //TODO
     }
 }

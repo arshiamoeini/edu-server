@@ -26,8 +26,8 @@ public class OptionCentricText extends JComboBox {
     public OptionCentricText(FacultyTemp faculty) {
         this(faculty.getProfessorsName());
     }
-    public OptionCentricText(List<Classroom> classroom) {
-        this(classroom.stream().map(Classroom::getCourse).map(CourseTemp::getName).toArray());
+    public OptionCentricText(List<ClassroomTemp> classroom) {
+        this(classroom.stream().map(ClassroomTemp::getCourse).map(CourseTemp::getName).toArray());
     }
 
     public static Object[] getOptionsName(OptionsFrom optionsFrom) {

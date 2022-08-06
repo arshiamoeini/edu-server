@@ -1,6 +1,6 @@
 package database;
 
-import MODELS.Classroom;
+import MODELS.ClassroomTemp;
 import MODELS.FacultyTemp;
 import MODELS.University;
 
@@ -45,7 +45,7 @@ public class UserTemp {
         return facultyID == faculty.getID();
     }
 
-    public List<Classroom> getWeeklyClasses() {
+    public List<ClassroomTemp> getWeeklyClasses() {
         FacultyTemp faculty = getFaculty();
         return weeklyClassesID.stream().map(x -> faculty.getClassroom(x)).collect(Collectors.toList());
     }

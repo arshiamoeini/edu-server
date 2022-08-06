@@ -1,7 +1,7 @@
 package LOGIC;
 
-import GUI.EducationalServicesDesigner;
 import GUI.MainFrame;
+import shared.WeeklyClassSchedule;
 import MODELS.*;
 import database.UserTemp;
 import shared.Identifier;
@@ -75,11 +75,11 @@ public class Command {
         return null;
     }
 
-    public ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> getSchedule() {
+    public ArrayList<WeeklyClassSchedule> getSchedule() {
         return Filter.getInstance().getSchedule(user.getWeeklyClasses());
     }
 
-    public ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> getExamSchedule() {
+    public ArrayList<WeeklyClassSchedule> getExamSchedule() {
         return Filter.getInstance().getExamSchedule(user.getWeeklyClasses());
     }
 
@@ -181,11 +181,11 @@ public class Command {
                 +" for student with id: "+request.getStudent().getId());
     }
 
-    public ArrayList<Classroom.classRating> getRegisteredRecords() {
+    public ArrayList<ClassroomTemp.classRating> getRegisteredRecords() {
         return ((StudentTemp) user).getRegisteredRecords();
     }
 
-    public List<Classroom> getClassrooms() {
+    public List<ClassroomTemp> getClassrooms() {
         return user.getWeeklyClasses();
     }
 }

@@ -6,17 +6,18 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
-import shared.ConstructorData;
-import shared.Identifier;
-import shared.LoginResult;
-import shared.UserType;
+import shared.*;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class Database {
     private static Database instance;
     private static SessionFactory sessionFactory = buildSessionFactory();
-
+    private Session session;
     private static SessionFactory buildSessionFactory() {
         final ServiceRegistry registry = new StandardServiceRegistryBuilder().configure()
                 .build();
@@ -39,9 +40,29 @@ public class Database {
         EducationalAssistant educationalAssistant = new EducationalAssistant(1003, "hello", faculty);
         faculty.addStudent(student);
         faculty.addProfessor(educationalAssistant);
+
+        Course course1 = new Course(2004, faculty, "riazi 1", 4, new HashSet<>(), new HashSet<>());
+        Course course2 = new Course(2005, faculty, "riazi 2", 4, new HashSet<>(Collections.singleton(course1)), new HashSet<>());
+        faculty.addCourse(course1);
+        faculty.addCourse(course2);
+        Classroom classroom = new Classroom(20051003L, faculty, course2, educationalAssistant);
+        faculty.addClassroom(classroom);
+        educationalAssistant.addClassroom(classroom);
+        CourseView courseView = new CourseView(classroom);
+        educationalAssistant.addCourseView(courseView);
+        CourseViewRegistration registration = courseView.addStudent(student, false);
+
         session.save(faculty);
         session.save(student);
         session.save(educationalAssistant);
+
+        session.save(course1);
+        session.save(course2);
+
+        session.save(classroom);
+        session.save(courseView);
+        session.save(registration);
+
         session.getTransaction().commit();
         session.close();
     }
@@ -77,10 +98,11 @@ public class Database {
         return UserType.MrMohseni;
     }
 
-    public User getUser(long id) {
+    public User getUser(long id) { //TODO generic
         Session session = sessionFactory.openSession();
         User user = session.get(User.class, id);
-        session.close();
+      //  Set<Classroom> classrooms = (session.get(Professor.class, id)).getClassrooms();
+       // session.close();
         return user;
     }
     private String[] getPrograms() {
@@ -93,5 +115,50 @@ public class Database {
 
     private String[] getFactories() {
         return new String[0];
+    }
+
+    public Course getCourse(int id) {
+        Session session = sessionFactory.openSession();
+        Course course = session.get(Course.class, id);
+  //      System.out.println(course.getPrerequisite().stream().map(x -> x.getName()).collect(Collectors.joining(" ")));
+  //      session.close();
+        return course;
+    }
+
+    public Classroom getClassroom(long id) {
+        Session session = sessionFactory.openSession();
+        Classroom classroom = session.get(Classroom.class, id);
+        System.out.println(classroom.getTeacher().getId());
+       // System.out.println(classroom.getProfessor1().getId());//getClassrooms().stream().map(Classroom::getId).collect(Collectors.toList()));
+        return classroom;
+    }
+    public void closeSession() {
+        if (session != null) session.close();
+    }
+
+    public Set<Classroom> getWeeklyClassrooms(long id) {
+        User user = getUser(id);
+        if (user instanceof Professor) {
+            return ((Professor) user).getClassrooms();
+        } else {
+            return null;
+        }
+    }
+
+    public CourseView getCourseView(long id) {
+        session = sessionFactory.openSession();
+        CourseView courseView = session.get(CourseView.class, id);
+        return courseView;
+    }
+
+    public Set<CourseView> getCourseViews(long userId) {
+        User user = getUser(userId);
+        if (user instanceof Professor) {
+            return ((Professor) user).getCourseViews();
+        } else {
+            return ((Student) user).getRegisteredCourse().stream().
+                    map(x -> x.getCourseView()).
+                    collect(Collectors.toSet());
+        }
     }
 }

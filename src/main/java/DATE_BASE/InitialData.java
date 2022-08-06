@@ -153,8 +153,8 @@ public class InitialData {
 
         ArrayList<LocalDateTime> times = new ArrayList<>();
         times.add(LocalDateTime.of(1401, 1, 1, 12, 30));
-        faculty1.addClassrooms(new Classroom(1, 1, 12, LocalDateTime.of(1400, 12, 1, 12, 30), times));
-        Classroom classroom = new Classroom(0, 1, 12, LocalDateTime.of(1400, 12, 2, 12, 30), times);
+        faculty1.addClassrooms(new ClassroomTemp(1, 1, 12, LocalDateTime.of(1400, 12, 1, 12, 30), times));
+        ClassroomTemp classroom = new ClassroomTemp(0, 1, 12, LocalDateTime.of(1400, 12, 2, 12, 30), times);
         faculty1.addClassrooms(classroom);
 
         classroom.addStudent(12);

@@ -4,7 +4,7 @@ import GUI.CellPane;
 import GUI.DemoList;
 import GUI.PanelDesigner;
 import LOGIC.Command;
-import MODELS.Classroom;
+import MODELS.ClassroomTemp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,12 +21,12 @@ public class TemporaryScoresPage implements PanelDesigner {
                 //TODO not clean
                 columnsTitle = new String[] {"course name", "teacher name", "recorded scores", "send", "register a protest", "see answer"};
                 designTopics();
-                for (Classroom.classRating rating: Command.getInstance().getRegisteredRecords()) {
+                for (ClassroomTemp.classRating rating: Command.getInstance().getRegisteredRecords()) {
                     addRow(rating);
                 }
             }
 
-            private void addRow(Classroom.classRating rating) {
+            private void addRow(ClassroomTemp.classRating rating) {
                 gbcFiller.gridy = rowsCounter++;
                 columnCounter = 0;
                 addCopyableTextInRow(rating.getClassroom().getCourse().getName());

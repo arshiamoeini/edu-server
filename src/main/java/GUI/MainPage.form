@@ -48,7 +48,14 @@
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <component id="5a04a" class="javax.swing.JButton" binding="outButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Button"/>
+                    </properties>
+                  </component>
+                </children>
               </grid>
             </children>
           </grid>

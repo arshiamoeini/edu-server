@@ -22,6 +22,8 @@ public class Faculty implements Serializable {
     private Set<Professor> professors;
     @OneToMany(mappedBy = "faculty")
     private Set<Course> courses;
+    @OneToMany(mappedBy = "faculty")
+    private Set<Classroom> classrooms;
 
     public Faculty() {
     }
@@ -32,6 +34,7 @@ public class Faculty implements Serializable {
         students = new HashSet<>();
         professors = new HashSet<>();
         courses = new HashSet<>();
+        classrooms = new HashSet<>();
     }
 
 
@@ -43,6 +46,9 @@ public class Faculty implements Serializable {
     }
     public void addCourse(Course course) {
         courses.add(course);
+    }
+    public void addClassroom(Classroom classroom) {
+        classrooms.add(classroom);
     }
 
     public Integer getId() {
@@ -80,6 +86,7 @@ public class Faculty implements Serializable {
                 ", students=" + students +
                 ", professors=" + professors +
                 ", courses=" + courses +
+                ", classrooms=" + classrooms +
                 '}';
     }
 }

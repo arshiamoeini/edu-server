@@ -38,8 +38,9 @@ public class Listener implements Runnable {
     private void listening(Scanner scanner) {
         while (true) {
             String identifier = scanner.nextLine();
-            if (identifier == authToken) {
+            if (identifier.equals(authToken)) {
                 Request request = gson.fromJson(scanner.nextLine(), Request.class);
+                ChainHandelResponsibility.getInstance().handel(id, request);
             }
         }
     }

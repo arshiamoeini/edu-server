@@ -4,150 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f348a1a-5491-4bc2-ab5d-f0f8118f0bd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_8_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_6_8_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/UserAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Capcha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CapchaGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CellPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/DemoList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableDemoList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableSubjectsList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Login.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginTemp.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NormalUserPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/PanelDesigner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/recordsList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RequestMenuPanelFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RealTime.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RealTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RequestMenuPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SelectMenuHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentMenus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SubjectsList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Updatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/BachelorStudentTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/CampusChairmenTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/Classroom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/ContainMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/CourseTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/EducationalAssistantTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/GraduateStudentTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/PhDStudentTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/ProfessorTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/University.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/Sender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/CapchaConfigured.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/ConfigHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/Configured.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/BachelorStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/CampusChairmen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/EducationalAssistant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/EducationalStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Faculty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/GraduateStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/PhDStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Professor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/UserTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/AuthTokenGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/ConstructorData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Identifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/LoginResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/shared/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/capcha image/3190.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/faculties.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/111" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/112" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/1234" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/university.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled1.iml" afterDir="false" />
+    <list default="true" id="2f348a1a-5491-4bc2-ab5d-f0f8118f0bd1" name="Changes" comment="courseware">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CourseViewPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CourseViewPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CourseViewPanelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SpecialUserPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/CourseView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/CourseViewRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/ChainHandelResponsibility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/CourseViewData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/NotificationData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/WeeklyClassSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainPagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MrMohseniPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/NormalUserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/NormalUserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/RecordScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/TemporaryScoresPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/recordsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/RECORD_AFFAIRS/recordsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Updatable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Updatable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/Classroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/ClassroomTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/EducationalAssistantTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/EducationalAssistantTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Faculty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/UserTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/UserTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shared/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/EducationalServicesDesigner$WeeklyClassSchedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/EducationalServicesDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/EducationalServicesDesigner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/ListDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ListDesigner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/ManePagePanelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ManePagePanelFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MrMohseniPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MrMohseniPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/ProfessorPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ProfessorPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/RecordScores.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/TemporaryScoresPage$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/TemporaryScoresPage$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/TemporaryScoresPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/TemporaryScoresPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/recordsList$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/recordsList$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/recordsList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RECORD_AFFAIRS/recordsList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/StudentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/StudentPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Updatable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Updatable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/UserConstantInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/UserConstantInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$SubjectFilterDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$SubjectFilterDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/Classroom$classRating.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/Classroom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/Course$Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/EducationalAssistantTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/EducationalAssistantTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/StudentTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/StudentTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/ClientMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/ClientMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Pulsator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Pulsator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/ResponseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/ResponseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Sender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Faculty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Faculty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Professor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/UserTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/UserTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/ServerMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shared/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shared/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shared/RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shared/RequestType.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,10 +132,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -211,7 +186,12 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RecentsManager">
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="GUI" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientMain" />
       <module name="untitled1" />
@@ -240,8 +220,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659523357114</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lot of work">
+      <created>1659523902862</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659523902862</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,25 +292,41 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="lot of work" />
-    <option name="LAST_COMMIT_MESSAGE" value="lot of work" />
+    <MESSAGE value="courseware" />
+    <option name="LAST_COMMIT_MESSAGE" value="courseware" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/client/Client.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/client/Client.java</url>
-          <line>44</line>
+          <line>50</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/client/Pulsator.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/StudentPage.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

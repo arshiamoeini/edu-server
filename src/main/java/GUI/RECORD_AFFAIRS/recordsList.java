@@ -2,7 +2,7 @@ package GUI.RECORD_AFFAIRS;
 
 import GUI.CellPane;
 import GUI.DemoList;
-import MODELS.Classroom;
+import MODELS.ClassroomTemp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,16 +10,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class recordsList extends DemoList {
-    public recordsList(ArrayList<Classroom.classRating> args, boolean editable) {
+    public recordsList(ArrayList<ClassroomTemp.classRating> args, boolean editable) {
         super();
         columnsTitle = new String[] {"student name", "student ID", "scour", "protest", "register answer", "answer"};
         designTopics();
-        for (Classroom.classRating rating: args) {
+        for (ClassroomTemp.classRating rating: args) {
             addRowWithProtest(rating, editable);
         }
     }
 
-    private void addRowWithProtest(Classroom.classRating rating, boolean editable) {
+    private void addRowWithProtest(ClassroomTemp.classRating rating, boolean editable) {
         gbcFiller.gridy = rowsCounter++;
         columnCounter = 0;
         addCopyableTextInRow(rating.getStudentName());

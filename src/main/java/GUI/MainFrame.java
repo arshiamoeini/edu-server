@@ -1,6 +1,5 @@
 package GUI;
 
-import GUI.RECORD_AFFAIRS.TemporaryScoresPage;
 import shared.ConstructorData;
 
 import javax.swing.*;
@@ -64,10 +63,11 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    public void enterMainPage(ConstructorData constant) {
+    public void enterMainPage(ConstructorData constant, long userID) {
         OptionCentricText.setFaculties(constant.getFactories());
         OptionCentricText.setPrograms(constant.getPrograms());
         UserConstantInformation.getInstance().setUserType(constant.getType());
+        UserConstantInformation.getInstance().setUserId(userID);
         setContentPanel(new MainPage(() -> setContentPanel(Login.getInstance())));
     }
 }

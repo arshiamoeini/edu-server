@@ -6,7 +6,7 @@ import GUI.OptionCentricText;
 import GUI.PanelDesigner;
 import LOGIC.Command;
 import LOGIC.Logger;
-import MODELS.Classroom;
+import MODELS.ClassroomTemp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,7 +37,7 @@ public class RecordScores implements PanelDesigner {
         list.removeAll();
         register.removeAll();
 
-        Classroom classroom = Command.getInstance().getClassrooms().get(selectedClassIndex);
+        ClassroomTemp classroom = Command.getInstance().getClassrooms().get(selectedClassIndex);
 
         JButton registerButton = new JButton();
         if (classroom.isRegistered()) {
@@ -69,16 +69,16 @@ public class RecordScores implements PanelDesigner {
         }
         register.add(registerButton);
     }
-    private void addSimpleDemo(Classroom classroom){
+    private void addSimpleDemo(ClassroomTemp classroom){
         toRecord.add( new DemoList() {
             {
                 columnsTitle = new String[] {"student name", "student id", "register", "score"};
                 designTopics();
-                for (Classroom.classRating rating : classroom.getRatings()) {
+                for (ClassroomTemp.classRating rating : classroom.getRatings()) {
                     addRowSimpleScore(rating);
                 }
             }
-            private void addRowSimpleScore(Classroom.classRating rating) {
+            private void addRowSimpleScore(ClassroomTemp.classRating rating) {
                 gbcFiller.gridy = rowsCounter++;
                 columnCounter = 0;
                 addCopyableTextInRow(rating.getStudentName());

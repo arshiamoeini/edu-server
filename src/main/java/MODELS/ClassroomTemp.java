@@ -5,7 +5,7 @@ import LOGIC.Logger;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Classroom {
+public class ClassroomTemp {
     private int id;
     private int facultyID;
     private int courseID;
@@ -74,7 +74,7 @@ public class Classroom {
             answer = "   ";
         }
 
-        public Classroom getClassroom() {
+        public ClassroomTemp getClassroom() {
             return University.getInstance().getFaculty(facultyID).getClassroom(classID);
         }
 
@@ -124,7 +124,7 @@ public class Classroom {
     }
     private LocalDateTime examDate;
 
-    public Classroom(int courseID, int teacherID, int capacity, LocalDateTime examDate, ArrayList<LocalDateTime> time) {
+    public ClassroomTemp(int courseID, int teacherID, int capacity, LocalDateTime examDate, ArrayList<LocalDateTime> time) {
         this.courseID = courseID;
         this.teacherID = teacherID;
         this.capacity = capacity;

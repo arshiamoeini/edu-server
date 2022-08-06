@@ -8,7 +8,7 @@ public class EducationalAssistantTemp extends ProfessorTemp {
         super(id, password);
     }
 
-    public void editClassroom(Classroom classroom,
+    public void editClassroom(ClassroomTemp classroom,
                               int courseID,
                               int courseCredit,
                               String courseName,

@@ -1,10 +1,11 @@
 package LOGIC;
 
 import GUI.*;
-import MODELS.Classroom;
+import MODELS.ClassroomTemp;
 import MODELS.CourseTemp;
 import MODELS.FacultyTemp;
 import MODELS.University;
+import shared.WeeklyClassSchedule;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Filter {
         instance = new Filter();
     }
 
-    private ArrayList<Classroom> subjects;
+    private ArrayList<ClassroomTemp> subjects;
 
     private class SubjectFilterDate {
         public FacultyTemp faculty;
@@ -29,7 +30,7 @@ public class Filter {
             this.faculty = faculty;
             this.program = program;
         }
-        public void addClassroomToFillList(Classroom classroom) {
+        public void addClassroomToFillList(ClassroomTemp classroom) {
             demoList.addSubjectRow(
                     classroom.getCourse().getId(),
                     classroom.getCourse().getCredit(),
@@ -67,22 +68,22 @@ public class Filter {
         }
 
         subjectFilterDate.demoList = demoList;
-        for (Classroom classroom: subjects) {
+        for (ClassroomTemp classroom: subjects) {
             subjectFilterDate.addClassroomToFillList(classroom);
         }
         return demoList;
     }
     private void getFilteredSubject(boolean sortByExamDate) {
         subjects.clear();
-        for (Classroom classroom: subjectFilterDate.faculty.getClassrooms()) {
+        for (ClassroomTemp classroom: subjectFilterDate.faculty.getClassrooms()) {
             if (classroom.getCourse().getProgram() == subjectFilterDate.program) {
                 subjects.add(classroom);
             }
         }
-        if (sortByExamDate) Collections.sort(subjects, new Comparator<Classroom>() {
+        if (sortByExamDate) Collections.sort(subjects, new Comparator<ClassroomTemp>() {
             //TODO add this one varible
             @Override
-            public int compare(Classroom o1, Classroom o2) {
+            public int compare(ClassroomTemp o1, ClassroomTemp o2) {
                 if (o1 == null || o2 == null) return 0;
                 return o1.getExamDate().compareTo(o2.getExamDate());
             }
@@ -111,7 +112,7 @@ public class Filter {
         subjectFilterDate.faculty.
                 addCourses("", pre * 100 + counter, new ArrayList<>(), new ArrayList<>(),
                         subjectFilterDate.program);
-        Classroom classroom = new Classroom(subjectFilterDate.faculty.lastAddedCourseID(),
+        ClassroomTemp classroom = new ClassroomTemp(subjectFilterDate.faculty.lastAddedCourseID(),
                 subjectFilterDate.faculty.getEducationalAssistantID(),
                 0,
                 LocalDateTime.now(), new ArrayList<>());
@@ -120,11 +121,11 @@ public class Filter {
     }
 
 
-    public ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> getSchedule(List<Classroom> weeklyClasses) {
-        ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> ans = new ArrayList<>();
-        for (Classroom classroom: weeklyClasses) {
+    public ArrayList<WeeklyClassSchedule> getSchedule(List<ClassroomTemp> weeklyClasses) {
+        ArrayList<WeeklyClassSchedule> ans = new ArrayList<>();
+        for (ClassroomTemp classroom: weeklyClasses) {
             for (LocalDateTime time: classroom.getTime()) {
-                ans.add(new EducationalServicesDesigner.WeeklyClassSchedule(
+                ans.add(new WeeklyClassSchedule(
                         classroom.getCourse().getName(),
                         classroom.getProfessorName(),
                         RealTime.weekDayAndTime(time)));
@@ -133,17 +134,17 @@ public class Filter {
         return ans;
     }
 
-    public ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> getExamSchedule(List<Classroom> weeklyClasses) {
-        ArrayList<EducationalServicesDesigner.WeeklyClassSchedule> ans = new ArrayList<>();
-        Collections.sort(weeklyClasses, new Comparator<Classroom>() {
+    public ArrayList<WeeklyClassSchedule> getExamSchedule(List<ClassroomTemp> weeklyClasses) {
+        ArrayList<WeeklyClassSchedule> ans = new ArrayList<>();
+        Collections.sort(weeklyClasses, new Comparator<ClassroomTemp>() {
             @Override
-            public int compare(Classroom o1, Classroom o2) {
+            public int compare(ClassroomTemp o1, ClassroomTemp o2) {
                 if (o1 == null || o2 == null) return 0;
                 return o1.getExamDate().compareTo(o2.getExamDate());
             }
         });
-        for (Classroom classroom: weeklyClasses) {
-            ans.add(new EducationalServicesDesigner.WeeklyClassSchedule(
+        for (ClassroomTemp classroom: weeklyClasses) {
+            ans.add(new WeeklyClassSchedule(
                         classroom.getCourse().getName(),
                         classroom.getProfessorName(),
                         RealTime.dateAndTime(classroom.getExamDate())));

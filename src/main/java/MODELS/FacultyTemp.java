@@ -12,7 +12,7 @@ public class FacultyTemp implements ContainMessage {
 
 
     private ArrayList<CourseTemp> courses;
-    private ArrayList<Classroom> classrooms;
+    private ArrayList<ClassroomTemp> classrooms;
 
     private int campusChairmenID;
     private int educationalAssistantID;
@@ -108,7 +108,7 @@ public class FacultyTemp implements ContainMessage {
     public void addCourses(String name, int id, ArrayList<CourseTemp> prerequisite, ArrayList<CourseTemp> coRequisite, CourseTemp.Program program) {
         courses.add(new CourseTemp(facultyID, name, id, prerequisite, coRequisite, program));
     }
-    public void addClassrooms(Classroom classroom) {
+    public void addClassrooms(ClassroomTemp classroom) {
         classrooms.add(classroom);
         classroom.setFacultyID(facultyID);
         classroom.setId(classrooms.size() - 1);
@@ -133,7 +133,7 @@ public class FacultyTemp implements ContainMessage {
         students.clear();
     }
     public ArrayList<CourseTemp> getCourses() { return courses; }
-    public ArrayList<Classroom> getClassrooms() { return classrooms; }
+    public ArrayList<ClassroomTemp> getClassrooms() { return classrooms; }
 
     public UserTemp getUser(long userID) {
         for (StudentTemp student: students) {
@@ -163,7 +163,7 @@ public class FacultyTemp implements ContainMessage {
         }
     }
 
-    public Classroom getClassroom(int index) {
+    public ClassroomTemp getClassroom(int index) {
         return classrooms.get(index);
     }
 

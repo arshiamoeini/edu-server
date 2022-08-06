@@ -1,9 +1,11 @@
 package GUI;
 
+import com.google.gson.Gson;
 import shared.RequestType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ListDesigner implements MainPagePanel {
     private static ListDesigner instance;
@@ -61,11 +63,16 @@ public class ListDesigner implements MainPagePanel {
 
     @Override
     public void setExit() {
-
+        ManePagePanelFactory.setOutButtonToExitToMainPage();
     }
 
     @Override
     public RequestType getUpdateRequest() {
         return RequestType.CHECK_CONNECTION;
+    }
+
+    @Override
+    public void update(ArrayList<String> data, Gson gson) {
+        //Todo
     }
 }

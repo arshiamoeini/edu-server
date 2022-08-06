@@ -14,8 +14,10 @@ public class ManePagePanelFactory {
             NormalUserPage page = (userType.isProfessor() ? new ProfessorPage(out) : new StudentPage(out));
             EducationalServicesDesigner servicesDesigner = new EducationalServicesDesigner(userType, out);
             ListDesigner listDesigner = new ListDesigner();
-            page.addCartPanel(2, servicesDesigner);
-            page.addCartPanel(3, listDesigner);
+            CoursewarePanel courseware = new CoursewarePanel(out);
+            page.addCartPanel(2, listDesigner);
+            page.addCartPanel(3, courseware);
+            page.addCartPanel(4, servicesDesigner);
             panel = page;
         }
         panel.enterPage();
@@ -32,11 +34,12 @@ public class ManePagePanelFactory {
         });
         return button;
     }
-    public static JButton getGoToLogin() {
-        JButton button = new JButton("out"); //TODO Config
-        button.addActionListener(e -> {
-
+    public static void setOutButtonToExitToMainPage() {
+        UserConstantInformation.getInstance().setOutButton("main page", e -> { CardLayout cards = (CardLayout) panel.getPanel().getLayout();
+            cards.show(panel.getPanel(), NormalUserPage.CART+"1");
+            ((NormalUserPage) panel).getRootPage().setSelectedIndex(0);
+            panel.enterPage();
+            panel.getPanel().repaint();
         });
-        return button;
     }
 }
