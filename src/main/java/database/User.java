@@ -2,6 +2,8 @@ package database;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,13 +16,16 @@ public class User implements Serializable {
     private int hashOfPassword;
     @Column
     String name;
-
+    @OneToMany
+    @OrderBy("id")
+    List<Notification> notifications;
     public User() {
     }
 
     public User(long id, String password) {
         this.id = id;
         setPassword(password);
+        notifications = new ArrayList<>();
     }
 
     public void setPassword(String password) { hashOfPassword = password.hashCode(); }
@@ -34,6 +39,9 @@ public class User implements Serializable {
     public String getName() {
         return name;
     }
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -44,6 +52,9 @@ public class User implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
 
     @Override
     public String toString() {
@@ -52,5 +63,9 @@ public class User implements Serializable {
                 ", hashOfPassword=" + hashOfPassword +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void addNotification(Notification notification) {
+        notifications.add(notification);
     }
 }

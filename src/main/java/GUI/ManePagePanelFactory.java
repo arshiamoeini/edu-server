@@ -15,9 +15,11 @@ public class ManePagePanelFactory {
             EducationalServicesDesigner servicesDesigner = new EducationalServicesDesigner(userType, out);
             ListDesigner listDesigner = new ListDesigner();
             CoursewarePanel courseware = new CoursewarePanel(out);
+            NotificationsPage notifications = new NotificationsPage();
             page.addCartPanel(2, listDesigner);
             page.addCartPanel(3, courseware);
             page.addCartPanel(4, servicesDesigner);
+            page.addCartPanel(5, notifications);
             panel = page;
         }
         panel.enterPage();

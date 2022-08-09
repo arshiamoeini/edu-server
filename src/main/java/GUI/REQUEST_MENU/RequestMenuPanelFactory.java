@@ -8,15 +8,20 @@ public class RequestMenuPanelFactory {
     private RequestMenuPanel panel;
 
     public RequestMenuPanel build(UserType userType) {
-        return null;
-                //Command.getInstance().isTheUSerABachelorStudent() ?
-                //        new BachelorStudentRequestsMenu().getPanel() :
-                 //       Command.getInstance().isTheUserAGraduateStudent() ?
-                 //               new GraduateRequestsMenu().getPanel() :
-                  //              Command.getInstance().isTheUserAPHDStudent() ?
-                  //                      new PHDRequestsMenu().getPanel() :
-                   //                     Command.getInstance().isTheUserAProfessor() ?
-                   //                             new ProfessorRequestMenu().getPanel() :
-                   //                             null);
+        if (userType.isProfessor()) {
+            panel = new ProfessorRequestMenu();
+        } else {
+            switch (userType) {
+                case BachelorStudent:
+                    panel = new BachelorStudentRequestsMenu();
+                    break;
+                case GraduateStudent:
+                    panel = new GraduateRequestsMenu();
+                    break;
+                case PHDStudent:
+                    panel = new PHDRequestsMenu();
+            }
+        }
+        return panel;
     }
 }

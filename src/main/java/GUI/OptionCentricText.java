@@ -9,6 +9,8 @@ import java.util.List;
 public class OptionCentricText extends JComboBox {
     public static String[] faculties;
     public static String[] programs;
+
+
     public enum OptionsFrom {
         Faculties,
         MasterLevel,
@@ -49,5 +51,8 @@ public class OptionCentricText extends JComboBox {
     }
     public static void setPrograms(String[] programs) {
         OptionCentricText.programs = programs;
+    }
+    public String getSelectedItemName() {
+        return (String) getItemAt(getSelectedIndex());
     }
 }

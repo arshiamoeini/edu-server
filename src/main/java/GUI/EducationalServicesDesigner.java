@@ -27,7 +27,7 @@ public class EducationalServicesDesigner implements NormalUserPage {
 
         main.addChangeListener(new SelectMenuHandler(this, educationalServices));
         factory = new RequestMenuPanelFactory();
-        //addCartPanel(2, factory.build(userType)); //TODO
+        addCartPanel(2, factory.build(userType));
     }
 
     @Override

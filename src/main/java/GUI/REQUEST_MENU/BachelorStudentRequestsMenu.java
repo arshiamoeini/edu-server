@@ -2,39 +2,42 @@ package GUI.REQUEST_MENU;
 
 import GUI.*;
 import LOGIC.Command;
-import LOGIC.Logger;
-import MODELS.BachelorStudentTemp;
+import MODELS.MajorRequestTemp;
+import client.Client;
+import com.google.gson.Gson;
+import shared.RequestType;
 
 import javax.swing.*;
-import java.awt.*;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 
-public class BachelorStudentRequestsMenu implements PanelDesigner {
+public class BachelorStudentRequestsMenu implements RequestMenuPanel {
     private JTabbedPane bachelorStudent;
     private JPanel panel;
-    private JButton addRecommendation;
     private JButton certificateButton;
     private JTextArea certificateText;
     private JButton addMajor;
     private JPanel applyMajored;
     private JPanel majorList;
     private JButton outOfUniversity;
-    private JPanel recommendationField;
-    private JPanel recommendationList;
     private JPanel majorMenu;
     private JPanel certificateMenu;
     private JPanel recommendationMenu;
     private JPanel withdrawalMenu;
-
+    CertificateMenu certificateMenuDesigner;
     public BachelorStudentRequestsMenu() {
+        bachelorStudent.addChangeListener(new SelectMenuHandler(this, panel));
+        recommendationInit();
+        certificateInit();
+        withdrawalInit();
+        majorInit();
     }
 
+
     private void recommendationInit() {
-        recommendationField.add(new OptionCentricText(Command.getInstance().getFaculty()),
-                BorderLayout.CENTER); // TODO add professor as OptionCentric object
-        addRecommendation.addActionListener(e -> Command.getInstance().addRecommendation(
-                ((OptionCentricText) recommendationField.getComponent(1)).getSelectedIndex()));
-        recommendationList.add(new DemoList() {
+        RecommendationMenu recommendationMenu = new RecommendationMenu();
+        getSelectMenuHandler().addUpdatable(recommendationMenu);
+        this.recommendationMenu.add(recommendationMenu.getPanel());
+        /*recommendationList.add(new DemoList() {
             {
                 columnsTitle = new String[]{"click to show recommendation", "text area"};
                 designTopics();
@@ -52,38 +55,30 @@ public class BachelorStudentRequestsMenu implements PanelDesigner {
 
                 button.addActionListener(e -> ((JTextArea) textArea.getLabel()).setText(recommendationText));
             }
-        });
+        });*/
     }
     private void certificateInit() {
-        certificateButton.addActionListener(e -> {
-            certificateText.setText(String.format("It is certified that Mr. / Mrs. %s with student number %s \nis studying in %s field at Sharif University. \n Certificate validity date: %s",
-                    Command.getInstance().getNameOfUser(),
-                    Command.getInstance().getUserID(),
-                    Command.getInstance().getNameOfUserFaculty(),
-                    RealTime.dateAndTime(LocalDateTime.now().plusYears(4))));
-            Logger.logInfo("Send certification for user:"+Command.getInstance().getNameOfUser());
-        });
+        certificateMenuDesigner = new CertificateMenu();
+        certificateMenu.add(certificateMenuDesigner.getPanel());
     }
     private void withdrawalInit() {
-        outOfUniversity.addActionListener(e -> Command.getInstance().addWithdrawalRequest());
+        withdrawalMenu.add(new WithdrawalMenu().getPanel());
     }
     private void majorInit() {
         applyMajored.add(new OptionCentricText(OptionCentricText.OptionsFrom.Faculties));
         addMajor.addActionListener(e -> {
-            Command.getInstance().addMajor(((OptionCentricText) applyMajored.getComponent(1)).
-                    getSelectedIndex());
-            updateMajorList();
+            Client.getInstance().send(RequestType.ADD_MAJOR_REQUEST,
+                    ((OptionCentricText) applyMajored.getComponent(1)).getSelectedItemName());
         });
-        updateMajorList();
     }
-    private void updateMajorList() {
+    private void updateMajorList(String[] majoredFacultiesName, String[] majorsStatus) {
         majorList.removeAll();
         majorList.add(new DemoList() {
             {
                 columnsTitle = new String[] {"faculty name", "status"};
                 designTopics();
-                for (BachelorStudentTemp.MajorRequest majorRequest: Command.getInstance().getMajorRequests()) {
-                    addRow(majorRequest.getFacultyName(), majorRequest.getStatus());
+                for (int i = 0; i < majorsStatus.length; i++) {
+                    addRow(majoredFacultiesName[i], majorsStatus[i]); //TODO Config
                 }
             }
             public void addRow(String facultyName, String status) {
@@ -97,26 +92,28 @@ public class BachelorStudentRequestsMenu implements PanelDesigner {
     }
     @Override
     public JPanel getPanel() {
-        recommendationInit();
-        certificateInit();
-        withdrawalInit();
-        majorInit();
-
-        panel.revalidate();
         return panel;
     }
 
-    public JPanel getRecommendationMenu() {
-        recommendationInit();
-        return recommendationMenu;
-    }
-    public JPanel getCertificateMenu() {
-        certificateInit();
-        return certificateMenu;
+    @Override
+    public JTabbedPane getRootPage() {
+        return bachelorStudent;
     }
 
-    public JPanel getWithdrawalMenu() {
-        withdrawalInit();
-        return withdrawalMenu;
+    @Override
+    public void setExit() {
+        ManePagePanelFactory.setOutButtonToExitToMainPage();
+    }
+
+    @Override
+    public RequestType getUpdateRequest() {
+        return RequestType.GET_MAJORS_STATUS;
+    }
+
+    @Override
+    public synchronized void update(ArrayList<String> data, Gson gson) throws Exception {
+        String[] majoredFacultiesName = gson.fromJson(data.get(0), String[].class);
+        String[] majorsStatus = gson.fromJson(data.get(1), String[].class);
+        updateMajorList(majoredFacultiesName, majorsStatus);
     }
 }

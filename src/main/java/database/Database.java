@@ -5,11 +5,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import shared.*;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -36,8 +38,10 @@ public class Database {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         Faculty faculty = new Faculty(108, "math");
-        Student student = (new Student(1234, "1234", faculty));
         EducationalAssistant educationalAssistant = new EducationalAssistant(1003, "hello", faculty);
+        faculty.setAssistant(educationalAssistant);
+
+        Student student = (new Student(1234, "1234", faculty));
         faculty.addStudent(student);
         faculty.addProfessor(educationalAssistant);
 
@@ -52,6 +56,14 @@ public class Database {
         educationalAssistant.addCourseView(courseView);
         CourseViewRegistration registration = courseView.addStudent(student, false);
 
+        Notification notif1 = new Notification(NotificationType.INFO, "salam", student.getId(),
+                "khobi", student.getName(), educationalAssistant);
+        Notification notif2 = new Notification(NotificationType.INFO, "pase", student.getId(),
+                "dotabashe", student.getName(), educationalAssistant);
+
+        educationalAssistant.addNotification(notif2);
+        educationalAssistant.addNotification(notif1);
+
         session.save(faculty);
         session.save(student);
         session.save(educationalAssistant);
@@ -62,6 +74,9 @@ public class Database {
         session.save(classroom);
         session.save(courseView);
         session.save(registration);
+
+        session.save(notif1);
+        session.save(notif2);
 
         session.getTransaction().commit();
         session.close();
@@ -78,11 +93,12 @@ public class Database {
             result = LoginResult.WRONG_USER_ID;
         } else {
             if (user.getHashOfPassword() == indent.getHashOfPassword()) {
-                result = new ConstructorData(getUserType(user), getFactories(), getPrograms());
+                result = new ConstructorData(getUserType(user), getFactoriesName(), getPrograms());
             } else {
                 result = LoginResult.WRONG_PASSWORD;
             }
         }
+        closeSession();
         sendToClient.accept(result);
     }
 
@@ -99,11 +115,16 @@ public class Database {
     }
 
     public User getUser(long id) { //TODO generic
-        Session session = sessionFactory.openSession();
+        session = sessionFactory.openSession();
         User user = session.get(User.class, id);
       //  Set<Classroom> classrooms = (session.get(Professor.class, id)).getClassrooms();
        // session.close();
         return user;
+    }
+    public Student getStudent(long id) {
+        session = sessionFactory.openSession();
+        Student student = session.get(Student.class, id);
+        return student;
     }
     private String[] getPrograms() {
         String[] values = new String[CourseTemp.Program.values().length];
@@ -113,8 +134,13 @@ public class Database {
         return values;
     }
 
-    private String[] getFactories() {
-        return new String[0];
+    private String[] getFactoriesName() {
+        if(session == null) session = sessionFactory.openSession();
+        String hql = "FROM Faculty f ordered BY f.id ASC";
+        return session.createQuery(hql, Faculty.class).
+                getResultList().stream().
+                map(x -> x.getName()).
+                toArray(String[]::new);
     }
 
     public Course getCourse(int id) {
@@ -134,6 +160,7 @@ public class Database {
     }
     public void closeSession() {
         if (session != null) session.close();
+        session = null;
     }
 
     public Set<Classroom> getWeeklyClassrooms(long id) {
@@ -160,5 +187,24 @@ public class Database {
                     map(x -> x.getCourseView()).
                     collect(Collectors.toSet());
         }
+    }
+
+    public List<Notification> getNotifications(long userId) {
+        User user = getUser(userId);
+        return user.getNotifications();
+    }
+
+    public Faculty getFacultyByName(String name) {
+        if (session == null) session = sessionFactory.openSession();
+        Query query= session.createQuery("from Faculty where name=:name");
+        query.setParameter("name", name);
+        return (Faculty) query.uniqueResult();
+    }
+
+    public void addNotification(User user, Notification notification) {
+        user.addNotification(notification);
+        session.update(user);
+        session.save(notification);
+        session.getTransaction().commit();
     }
 }

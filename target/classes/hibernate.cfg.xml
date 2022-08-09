@@ -15,7 +15,7 @@
         <property name="show_sql">true</property>
 
         <!-- Update database on startup -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
         <property name="format_sql">true</property>
         <!-- Show SQL formatted -->
@@ -34,6 +34,7 @@
         <mapping class="database.Classroom"/>
         <mapping class="database.CourseView"/>
         <mapping class="database.CourseViewRegistration"/>
-
+        <mapping class="database.Notification"/>
+        <mapping class="database.MajorRequest"/>
     </session-factory>
 </hibernate-configuration>

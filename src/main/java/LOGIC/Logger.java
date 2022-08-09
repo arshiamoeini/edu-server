@@ -1,7 +1,6 @@
 package LOGIC;
 
 import GUI.RealTime;
-import database.UserTemp;
 
 import java.io.FileWriter;
 import java.time.LocalDateTime;
@@ -24,9 +23,9 @@ public class Logger {
         }
     }
 
-    public static void loginUser(UserTemp user) {
+    public static void loginUser(long userId) {
         try {
-            fileWriter = new FileWriter(SOURCE + user.getId(), true);
+            fileWriter = new FileWriter(SOURCE + userId, true);
             logInfo("Enter");
         } catch (Exception e) {
             throw new RuntimeException(e);

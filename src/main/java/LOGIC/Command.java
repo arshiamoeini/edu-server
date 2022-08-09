@@ -46,7 +46,7 @@ public class Command {
     }
 
     public void showUserPage() {
-        Logger.loginUser(user);
+        Logger.loginUser(user.getId());
         //some second wait
         mainFrame.uploadPage();
     }
@@ -115,7 +115,7 @@ public class Command {
         return null;
     }
 
-    public ArrayList<BachelorStudentTemp.MajorRequest> getMajorRequests() {
+    public ArrayList<MajorRequestTemp> getMajorRequests() {
         try {
             return ((BachelorStudentTemp) user).getMajorRequests();
         } catch (Exception e) {

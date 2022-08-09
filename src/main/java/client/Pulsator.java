@@ -3,6 +3,8 @@ package client;
 import GUI.Updatable;
 import GUI.UserConstantInformation;
 import com.google.gson.Gson;
+import database.Faculty;
+import shared.RequestType;
 import shared.Response;
 
 import java.time.LocalDateTime;
@@ -16,6 +18,8 @@ public class Pulsator extends Thread {
     private LocalTime time;
     private int countPulses = 0;
     private boolean offline = false;
+    private String selectedFacultyName;
+
     public Pulsator() {
     }
 
@@ -31,8 +35,13 @@ public class Pulsator extends Thread {
                     continue;
                 }
                 if (true) {//countPulses < 5) {
-                    Client.getSender().send(setAndGetCurrentPage(null).getUpdateRequest(),
-                            UserConstantInformation.getInstance().getUserId());
+                    RequestType requestType = setAndGetCurrentPage(null).getUpdateRequest();
+                    if (requestType == RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY) {
+                        Client.getInstance().send(requestType, selectedFacultyName);
+                    } else {
+                        Client.getSender().send(requestType,
+                                UserConstantInformation.getInstance().getUserId());
+                    }
                     addPulseThatGetNotResponseOrReset(false);
                 } else {
                     offline = true;
@@ -79,6 +88,7 @@ public class Pulsator extends Thread {
             setAndGetCurrentPage(null).update(response.getData(), gson);
         } catch (Exception e) {
             //throw new RuntimeException(e);
+            System.out.println("good");
         }
         setAndGetPing(Math.min((int) time.until(LocalTime.now(), ChronoUnit.MILLIS), 3000));//TODO Config
         time = LocalTime.now();
@@ -86,4 +96,7 @@ public class Pulsator extends Thread {
     }
 
 
+    public void setSelectedFacultyName(String selectedFacultyName) {
+        this.selectedFacultyName = selectedFacultyName;
+    }
 }

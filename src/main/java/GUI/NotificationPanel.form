@@ -9,7 +9,10 @@
     <children>
       <component id="ae65c" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
         <constraints border-constraint="Center"/>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+          <wrapStyleWord value="false"/>
+        </properties>
       </component>
       <grid id="7eefe" binding="optionalChoseFiled" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="South"/>

@@ -1,25 +1,26 @@
 package GUI.REQUEST_MENU;
 
-import GUI.CellPane;
-import GUI.DemoList;
-import GUI.PanelDesigner;
+import GUI.*;
 import LOGIC.Command;
 import MODELS.FacultyTemp;
 import MODELS.StudentTemp;
+import com.google.gson.Gson;
+import shared.RequestType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class ProfessorRequestMenu implements PanelDesigner {
+public class ProfessorRequestMenu implements RequestMenuPanel {
     private JPanel panel;
     private JTabbedPane professor;
     private JPanel recommendationField;
     public ProfessorRequestMenu() {
-        recommendationInit();
-        if (Command.getInstance().isTheUserAEducationalAssistant()) {
-            educationalRequestsInit();
-        }
+      //  recommendationInit();
+  //      if (Command.getInstance().isTheUserAEducationalAssistant()) {
+   //         educationalRequestsInit();
+    //    }
     }
     private void recommendationInit() {
         recommendationField.removeAll();
@@ -115,5 +116,25 @@ public class ProfessorRequestMenu implements PanelDesigner {
     @Override
     public JPanel getPanel() {
         return panel;
+    }
+
+    @Override
+    public JTabbedPane getRootPage() {
+        return professor;
+    }
+
+    @Override
+    public void setExit() {
+        ManePagePanelFactory.setOutButtonToExitToMainPage();
+    }
+
+    @Override
+    public RequestType getUpdateRequest() {
+        return null;
+    }
+
+    @Override
+    public void update(ArrayList<String> data, Gson gson) throws Exception {
+
     }
 }

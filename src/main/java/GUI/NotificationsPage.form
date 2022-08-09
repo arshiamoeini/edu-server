@@ -27,7 +27,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="e2ecd" binding="notificationsList" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                  <grid id="e2ecd" binding="notificationsButtonList" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                     <constraints/>
                     <properties/>
                     <border type="none"/>
@@ -39,8 +39,7 @@
           </grid>
         </children>
       </grid>
-      <grid id="a16c0" binding="notificationView" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <grid id="a16c0" binding="notificationView" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints>
           <card name="Card2"/>
         </constraints>

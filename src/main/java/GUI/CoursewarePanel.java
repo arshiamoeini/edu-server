@@ -46,7 +46,7 @@ public class CoursewarePanel implements SpecialUserPage {
     }
 
     @Override
-    public void update(ArrayList<String> data, Gson gson) {//Debug
+    public synchronized void update(ArrayList<String> data, Gson gson) {
        // List<String> st = Arrays.stream(gson.fromJson(data[0], String[].class)).collect(Collectors.toList());
        // List<CourseViewData> courseViewsData = Arrays.stream(gson.fromJson(data[0], String[].class)).map(x -> gson.fromJson(x, CourseViewData.class)).collect(Collectors.toList());
         CourseViewData[] courseViewsData = gson.fromJson(data.get(0), CourseViewData[].class);
@@ -55,6 +55,8 @@ public class CoursewarePanel implements SpecialUserPage {
                 forEach(x -> addNewCourseView(x));
         Arrays.stream(courseViewsData).
                 forEach(x -> factory.updateCourse(courseKey.get(x.getID()), x));
+        panel.repaint();
+        panel.revalidate();
     }
 
     private void addNewCourseView(CourseViewData courseViewData) {
@@ -63,8 +65,6 @@ public class CoursewarePanel implements SpecialUserPage {
         JButton button = new JButton(courseViewData.getName());
         button.addActionListener(e -> enterToSubPanel(index));
         courseList.add(button);
-        panel.repaint();
-        panel.revalidate();
     }
     @Override
     public void enterToSubPanel(int id) {

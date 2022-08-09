@@ -5,26 +5,7 @@ import java.util.ArrayList;
 public class BachelorStudentTemp extends StudentTemp {
     private ArrayList<String> answeredRecommendations = new ArrayList<>();
 
-    public class MajorRequest {
-        private int WithFacultyID;
-        private boolean rejected = false;
-        private int accepted = 0;
-
-        public MajorRequest(int withFacultyID) {
-            this.WithFacultyID = withFacultyID;
-        }
-
-        public String getFacultyName() {
-            return University.getInstance().getFaculty(WithFacultyID).getMassage();
-        }
-
-        public String getStatus() {
-            if (rejected) return "rejected";
-            if (accepted == 2) return "accepted";
-            return "registered";
-        }
-    }
-    private ArrayList<MajorRequest> majorRequests = new ArrayList<>();
+    private ArrayList<MajorRequestTemp> majorRequests = new ArrayList<>();
     public BachelorStudentTemp(long id, String password) {
         super(id, password);
     }
@@ -39,27 +20,25 @@ public class BachelorStudentTemp extends StudentTemp {
 
     public void addMajorRequest(int withFacultyID) {
         boolean find = false;
-        for (MajorRequest majorRequest: majorRequests) {
-            if (majorRequest.WithFacultyID == withFacultyID) find = true;
+        for (MajorRequestTemp majorRequest: majorRequests) {
+            if (2 == withFacultyID) find = true;
         }
-        if (!find) majorRequests.add(new MajorRequest(withFacultyID));
+        if (!find) majorRequests.add(new MajorRequestTemp(withFacultyID));
     }
 
-    public ArrayList<MajorRequest> getMajorRequests() {
+    public ArrayList<MajorRequestTemp> getMajorRequests() {
         return majorRequests;
     }
     public void rejectMajor(String facultyName) {
-        for (MajorRequest request: majorRequests) {
+        for (MajorRequestTemp request: majorRequests) {
             if (request.getFacultyName() == facultyName) {
-                request.rejected = true;
                 return;
             }
         }
     }
     public void acceptMajor(String facultyName) {
-        for (MajorRequest request: majorRequests) {
+        for (MajorRequestTemp request: majorRequests) {
             if (request.getFacultyName() == facultyName) {
-                ++request.accepted;
                 return;
             }
         }

@@ -18,7 +18,6 @@ public class SelectMenuHandler implements ChangeListener {
      */
     private JPanel panel;
     public SelectMenuHandler(Updatable mainPage, JPanel panel) {
-        //TODO fix this system bug
         addUpdatable(mainPage);
         this.panel = panel;
     }

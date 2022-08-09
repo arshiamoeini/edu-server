@@ -1,6 +1,7 @@
 package client;
 
 import GUI.*;
+import LOGIC.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import shared.*;
@@ -84,6 +85,7 @@ public class Client implements Sender {
     public LoginResult login(Identifier date) {
         LoginResult result = tryToConnectServer(date);
         if (result == LoginResult.PASS) {
+            Logger.loginUser(date.getUserID());
             authToken = scanner.nextLine();
             enterMainPage(scanner.nextLine(), date);
             startListeningToServer();
