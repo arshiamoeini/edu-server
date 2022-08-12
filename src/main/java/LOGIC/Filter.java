@@ -1,10 +1,8 @@
 package LOGIC;
 
 import GUI.*;
-import MODELS.ClassroomTemp;
-import MODELS.CourseTemp;
-import MODELS.FacultyTemp;
-import MODELS.University;
+import MODELS.*;
+import shared.Program;
 import shared.WeeklyClassSchedule;
 
 import java.time.LocalDateTime;
@@ -24,9 +22,9 @@ public class Filter {
 
     private class SubjectFilterDate {
         public FacultyTemp faculty;
-        public CourseTemp.Program program;
+        public Program program;
         public DemoList demoList;
-        public SubjectFilterDate(FacultyTemp faculty, CourseTemp.Program program) {
+        public SubjectFilterDate(FacultyTemp faculty, Program program) {
             this.faculty = faculty;
             this.program = program;
         }
@@ -57,14 +55,14 @@ public class Filter {
     public DemoList doSubjectFilter(int facultyIndex, int programIndex, boolean sortByExamDate) {
         FacultyTemp faculty = University.getInstance().getFaculty(facultyIndex);
 
-        subjectFilterDate = new SubjectFilterDate(faculty, CourseTemp.Program.values()[programIndex]);
+        subjectFilterDate = new SubjectFilterDate(faculty, Program.values()[programIndex]);
         getFilteredSubject(sortByExamDate);
 
         DemoList demoList;
         if (Command.getInstance().canUserEditSubjectsList(faculty)) {
-            demoList = new EditableSubjectsList();
+            demoList = new EditableSubjectsListTemp();
         } else {
-            demoList = new SubjectsList();
+            demoList = new SubjectsListTemp();
         }
 
         subjectFilterDate.demoList = demoList;

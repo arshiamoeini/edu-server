@@ -1,6 +1,7 @@
 package MODELS;
 
 import database.UserTemp;
+import shared.Program;
 
 import java.util.ArrayList;
 
@@ -105,7 +106,7 @@ public class FacultyTemp implements ContainMessage {
     @Override
     public String getMassage() { return name; }
 
-    public void addCourses(String name, int id, ArrayList<CourseTemp> prerequisite, ArrayList<CourseTemp> coRequisite, CourseTemp.Program program) {
+    public void addCourses(String name, int id, ArrayList<CourseTemp> prerequisite, ArrayList<CourseTemp> coRequisite, Program program) {
         courses.add(new CourseTemp(facultyID, name, id, prerequisite, coRequisite, program));
     }
     public void addClassrooms(ClassroomTemp classroom) {

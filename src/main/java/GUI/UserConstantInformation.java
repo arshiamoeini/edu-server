@@ -1,5 +1,6 @@
 package GUI;
 
+import shared.ConstructorData;
 import shared.UserType;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ public class UserConstantInformation {
     private JPanel handyButtons;
     private JButton outButton;
     private long userID;
+    private String facultyName;
 
     public static UserConstantInformation getInstance() {
         return instance;
@@ -46,5 +48,17 @@ public class UserConstantInformation {
     }
     public void setUserId(long userID) {
         this.userID = userID;
+    }
+
+    public String getFacultyName() {
+        return facultyName;
+    }
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
+    }
+
+    public void setUserData(ConstructorData data) {
+        setUserType(data.getType());
+        setFacultyName(data.getFacultyName());
     }
 }

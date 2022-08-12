@@ -37,7 +37,8 @@ public class ManePagePanelFactory {
         return button;
     }
     public static void setOutButtonToExitToMainPage() {
-        UserConstantInformation.getInstance().setOutButton("main page", e -> { CardLayout cards = (CardLayout) panel.getPanel().getLayout();
+        UserConstantInformation.getInstance().setOutButton("main page", e -> {
+            CardLayout cards = (CardLayout) panel.getPanel().getLayout();
             cards.show(panel.getPanel(), NormalUserPage.CART+"1");
             ((NormalUserPage) panel).getRootPage().setSelectedIndex(0);
             panel.enterPage();

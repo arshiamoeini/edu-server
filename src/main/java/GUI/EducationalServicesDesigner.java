@@ -41,16 +41,15 @@ public class EducationalServicesDesigner implements NormalUserPage {
     }
     @Override
     public void setExit() {
-        out.removeAll();
-        out.add(ManePagePanelFactory.getGoToMainPageButton());
-        out.repaint();
+        ManePagePanelFactory.setOutButtonToExitToMainPage();
     }
 
     @Override
     public void update(ArrayList<String> data, Gson gson) {
         String[] weeklyClassTime = gson.fromJson(data.get(0), String[].class);
         String[] weeklyClassExamDate = gson.fromJson(data.get(1), String[].class);
-
+        weeklySchedule.removeAll();
+        examSchedule.removeAll();
         Arrays.stream(weeklyClassTime).forEach(x -> weeklySchedule.add(new JLabel(x)));
         Arrays.stream(weeklyClassExamDate).forEach(x -> examSchedule.add(new JLabel(x)));
     }

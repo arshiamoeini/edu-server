@@ -1,18 +1,14 @@
 package database;
 
-import MODELS.CourseTemp;
+import shared.Program;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import shared.*;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -37,11 +33,11 @@ public class Database {
         System.out.println(getPrograms());
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Faculty faculty = new Faculty(108, "math");
+        Faculty faculty = new Faculty("math");
         EducationalAssistant educationalAssistant = new EducationalAssistant(1003, "hello", faculty);
         faculty.setAssistant(educationalAssistant);
 
-        Student student = (new Student(1234, "1234", faculty));
+        BachelorStudent student = (new BachelorStudent(1234, "1234", faculty));
         faculty.addStudent(student);
         faculty.addProfessor(educationalAssistant);
 
@@ -49,17 +45,25 @@ public class Database {
         Course course2 = new Course(2005, faculty, "riazi 2", 4, new HashSet<>(Collections.singleton(course1)), new HashSet<>());
         faculty.addCourse(course1);
         faculty.addCourse(course2);
-        Classroom classroom = new Classroom(20051003L, faculty, course2, educationalAssistant);
+        Classroom classroom = new Classroom(20051003L, faculty, course2, educationalAssistant, Program.UNDERGRADUATE);
+        Classroom classroom1 = new Classroom(20041003L, faculty, course1, educationalAssistant, Program.COMMON);
+        Classroom defaultClassroom = new Classroom(1L, faculty, null, null, Program.UNDERGRADUATE);
         faculty.addClassroom(classroom);
+        faculty.addClassroom(classroom1);
+        faculty.addClassroom(defaultClassroom);
         educationalAssistant.addClassroom(classroom);
+        educationalAssistant.addClassroom(classroom1);
         CourseView courseView = new CourseView(classroom);
+        CourseView courseView1 = new CourseView(classroom1);
         educationalAssistant.addCourseView(courseView);
+        educationalAssistant.addCourseView(courseView1);
         CourseViewRegistration registration = courseView.addStudent(student, false);
+        ClassroomRating classroomRating = classroom1.addStudent(student);
 
         Notification notif1 = new Notification(NotificationType.INFO, "salam", student.getId(),
-                "khobi", student.getName(), educationalAssistant);
+                "khobi", student.getName());
         Notification notif2 = new Notification(NotificationType.INFO, "pase", student.getId(),
-                "dotabashe", student.getName(), educationalAssistant);
+                "dotabashe", student.getName());
 
         educationalAssistant.addNotification(notif2);
         educationalAssistant.addNotification(notif1);
@@ -72,7 +76,11 @@ public class Database {
         session.save(course2);
 
         session.save(classroom);
+        session.save(classroom1);
+        session.save(defaultClassroom);
+        session.save(classroomRating);
         session.save(courseView);
+        session.save(courseView1);
         session.save(registration);
 
         session.save(notif1);
@@ -88,18 +96,27 @@ public class Database {
 
     public synchronized void signIn(Identifier indent, Consumer<Object> sendToClient) { //TODO ability to responds to multi user login
         User user = getUser(indent.getUserID());
-        Object result;
-        if (user == null) {
-            result = LoginResult.WRONG_USER_ID;
-        } else {
-            if (user.getHashOfPassword() == indent.getHashOfPassword()) {
-                result = new ConstructorData(getUserType(user), getFactoriesName(), getPrograms());
-            } else {
-                result = LoginResult.WRONG_PASSWORD;
-            }
-        }
+        Object result = getLoginResult(user, indent);
+
         closeSession();
         sendToClient.accept(result);
+    }
+    public Object getLoginResult(User user, Identifier indent) {
+        if (user == null) return LoginResult.WRONG_USER_ID;
+        if (user.getHashOfPassword() == indent.getHashOfPassword()) {
+            return new ConstructorData(getUserType(user), getFactoriesName(),
+                    getPrograms(), getFaculty(user).getName());
+        }
+        return LoginResult.WRONG_PASSWORD;
+    }
+
+    public Faculty getFaculty(User user) {
+        if (user instanceof Student) {
+            return ((Student) user).getFaculty();
+        } else if (user instanceof Professor) {
+            return ((Professor) user).getFaculty();
+        }
+        return null;
     }
 
     private UserType getUserType(User user) {
@@ -126,17 +143,21 @@ public class Database {
         Student student = session.get(Student.class, id);
         return student;
     }
+    public Professor getProfessor(long id) {
+        if (session == null) session = sessionFactory.openSession();
+        return session.get(Professor.class, id);
+    }
     private String[] getPrograms() {
-        String[] values = new String[CourseTemp.Program.values().length];
-        for (int i = 0; i < CourseTemp.Program.values().length; i++) {
-            values[i] = CourseTemp.Program.values()[i].toString();
+        String[] values = new String[Program.values().length];
+        for (int i = 0; i < Program.values().length; i++) {
+            values[i] = Program.values()[i].toString();
         }
         return values;
     }
 
     private String[] getFactoriesName() {
         if(session == null) session = sessionFactory.openSession();
-        String hql = "FROM Faculty f ordered BY f.id ASC";
+        String hql = "FROM Faculty f ORDER BY f.id ASC";
         return session.createQuery(hql, Faculty.class).
                 getResultList().stream().
                 map(x -> x.getName()).
@@ -168,7 +189,9 @@ public class Database {
         if (user instanceof Professor) {
             return ((Professor) user).getClassrooms();
         } else {
-            return null;
+            return ((Student) user).getClassroomRates().stream()
+                    .map(x -> x.getClassroom())
+                    .collect(Collectors.toSet());
         }
     }
 
@@ -196,15 +219,84 @@ public class Database {
 
     public Faculty getFacultyByName(String name) {
         if (session == null) session = sessionFactory.openSession();
-        Query query= session.createQuery("from Faculty where name=:name");
-        query.setParameter("name", name);
-        return (Faculty) query.uniqueResult();
+     /*   String hql = "FROM Faculty f ORDER BY f.id ASC";
+        ArrayList<Faculty> faculties = new ArrayList<>(session.createQuery(hql, Faculty.class).
+                getResultList().stream().filter(x -> x.getName().equals(name)).collect(Collectors.toList()));
+
+        return faculties.get(0);
+      */
+        return session.find(Faculty.class, name);
     }
 
     public void addNotification(User user, Notification notification) {
-        user.addNotification(notification);
-        session.update(user);
+        session.beginTransaction();
+        User suser = session.find(User.class, user.getId());
+        suser.addNotification(notification);
+        session.update(suser);
         session.save(notification);
         session.getTransaction().commit();
     }
+
+    public void addMajorRequest(BachelorStudent student, MajorRequest majorRequest) {
+        session.beginTransaction();
+        BachelorStudent superStudent = session.find(BachelorStudent.class, student.getId());
+        superStudent.addMajorRequest(majorRequest);
+        session.update(superStudent);
+        session.save(majorRequest);
+        session.getTransaction().commit();
+    }
+
+    public List<Professor> getProfessors(Faculty faculty) {
+        if (session == null) session = sessionFactory.openSession();
+        Faculty superFaculty = session.find(Faculty.class, faculty.getName());
+        return superFaculty.getProfessors();
+    }
+    public Set<Classroom> getClassrooms(Faculty faculty) {
+        if (session == null) session = sessionFactory.openSession();
+        Faculty superFaculty = session.find(Faculty.class, faculty.getName());
+        return superFaculty.getClassrooms();
+    }
+
+    public void addDefaultClassroom(String facultyName, String programStr) {
+        session = sessionFactory.openSession();
+        if (getProfessor(1L) != null) return;
+        session.beginTransaction();
+        Faculty faculty =  session.find(Faculty.class, facultyName);
+        Classroom classroom = getDefaultClassroom(faculty, Program.valueOf(programStr));
+        faculty.addClassroom(classroom);
+        session.update(faculty);
+        session.save(classroom);
+        session.getTransaction().commit();
+    }
+
+    private Classroom getDefaultClassroom(Faculty faculty, Program program) {
+        return new Classroom(1L,
+                faculty,
+                null,
+                null,
+                program);
+    }
+
+    public int addStudent(Faculty faculty, String[] data) {
+        if (session == null) {
+            session = sessionFactory.openSession();
+        }
+        try {
+            addStudent(faculty, new Student(faculty, data));
+            return 0;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            session.close();
+            return -1;
+        }
+    }
+
+    private void addStudent(Faculty faculty, Student student) {
+        session.beginTransaction();
+        faculty.addStudent(student);
+       // session.update(faculty);
+        session.save(student);
+        session.getTransaction().commit();
+    }
+
 }

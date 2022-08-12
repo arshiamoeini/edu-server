@@ -25,7 +25,7 @@ public class BachelorStudentRequestsMenu implements RequestMenuPanel {
     private JPanel withdrawalMenu;
     CertificateMenu certificateMenuDesigner;
     public BachelorStudentRequestsMenu() {
-        bachelorStudent.addChangeListener(new SelectMenuHandler(this, panel));
+        bachelorStudent.addChangeListener(new SelectRequestMenuHandler(this, panel));
         recommendationInit();
         certificateInit();
         withdrawalInit();
@@ -68,7 +68,8 @@ public class BachelorStudentRequestsMenu implements RequestMenuPanel {
         applyMajored.add(new OptionCentricText(OptionCentricText.OptionsFrom.Faculties));
         addMajor.addActionListener(e -> {
             Client.getInstance().send(RequestType.ADD_MAJOR_REQUEST,
-                    ((OptionCentricText) applyMajored.getComponent(1)).getSelectedItemName());
+                    ((OptionCentricText) applyMajored.getComponent(1)).getSelectedItemName(),
+                    UserConstantInformation.getInstance().getUserId());
         });
     }
     private void updateMajorList(String[] majoredFacultiesName, String[] majorsStatus) {

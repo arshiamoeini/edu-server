@@ -13,9 +13,12 @@ public class Request {
         this.type = type;
     }
 
-    public Request(RequestType type, ArrayList<Object> data) {
+    public Request(RequestType type, ArrayList<String> data) {
         this.type = type;
-        this.data = data;
+        this.data = new ArrayList<>();
+        for (String str: data) {
+            this.data.add(str);
+        }
     }
 
     public Request(RequestType type, Gson gson, Object... objects) {
@@ -26,6 +29,14 @@ public class Request {
         }
     }
 
+    public Request(RequestType type, String... args) {
+        this(type, new ArrayList<>(Arrays.asList(args)));
+    }
+    public Request(Object... objects) {
+        data = new ArrayList<>(Arrays.asList(objects));
+    }
+
+
     public RequestType getType() {
         return type;
     }
@@ -33,14 +44,27 @@ public class Request {
     public void addData(String element) {
         data.add(element);
     }
+    public void addData(Gson gson, Object obj) {
+        data.add(gson.toJson(obj));
+    }
 
     public String getLastData() {
-        String result = data.get(data.size() - 1);
+        String result = (String) data.get(data.size() - 1);
         data.remove(data.size() - 1);
         return result;
     }
 
-    public ArrayList<String> getData() {
+    public ArrayList<Object> getData() {
         return data;
+    }
+
+    public String getData(int index) {
+        return (String) data.get(index);
+    }
+
+    public Object getLast() {
+        Object result = data.get(data.size() - 1);
+        data.remove(data.size() - 1);
+        return result;
     }
 }

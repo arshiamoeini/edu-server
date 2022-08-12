@@ -20,19 +20,16 @@ public class Notification implements Serializable {
     private String text;
     @Column
     private String senderName;
-    @ManyToOne
-    private User owner;
 
     public Notification() {
     }
 
-    public Notification(NotificationType type, String title, long senderUserId, String text, String senderName, User owner) {
+    public Notification(NotificationType type, String title, long senderUserId, String text, String senderName) {
         this.type = type;
         this.title = title;
         this.senderUserId = senderUserId;
         this.text = text;
         this.senderName = senderName;
-        this.owner = owner;
     }
 
     public Integer getId() {
@@ -53,9 +50,6 @@ public class Notification implements Serializable {
     public String getSenderName() {
         return senderName;
     }
-    public User getOwner() {
-        return owner;
-    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -75,9 +69,6 @@ public class Notification implements Serializable {
     public void setSenderName(String senderName) {
         this.senderName = senderName;
     }
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
 
     @Override
     public String toString() {
@@ -88,7 +79,6 @@ public class Notification implements Serializable {
                 ", senderUserId=" + senderUserId +
                 ", text='" + text + '\'' +
                 ", senderName='" + senderName + '\'' +
-                ", owner=" + owner +
                 '}';
     }
 

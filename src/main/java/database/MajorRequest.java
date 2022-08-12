@@ -20,6 +20,10 @@ public class MajorRequest {
     public MajorRequest() {
     }
 
+    public MajorRequest(Faculty targetFaculty) {
+        this.targetFaculty = targetFaculty;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -66,7 +66,7 @@ public class MainFrame extends JFrame {
     public void enterMainPage(ConstructorData constant, long userID) {
         OptionCentricText.setFaculties(constant.getFactories());
         OptionCentricText.setPrograms(constant.getPrograms());
-        UserConstantInformation.getInstance().setUserType(constant.getType());
+        UserConstantInformation.getInstance().setUserData(constant);
         UserConstantInformation.getInstance().setUserId(userID);
         setContentPanel(new MainPage(() -> setContentPanel(Login.getInstance())));
     }

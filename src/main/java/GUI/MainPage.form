@@ -16,7 +16,7 @@
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints border-constraint="West"/>
             <properties>
-              <preferredSize width="130" height="24"/>
+              <preferredSize width="130" height="35"/>
             </properties>
             <border type="none"/>
             <children/>

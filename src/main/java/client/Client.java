@@ -170,7 +170,7 @@ public class Client implements Sender {
         } else {
             ArrayList<String> data = new ArrayList<>();
             for (int i = 0; i < args.length; i++) {
-                data.add(gson.toJson(args[i]));
+                data.add((args[i] instanceof String ? (String) args[i] : gson.toJson(args[i])));
             }
             sendObject(new Request(type, data));
         }

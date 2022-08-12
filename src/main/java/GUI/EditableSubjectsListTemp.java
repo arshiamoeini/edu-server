@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 import static GUI.RealTime.readLocalDateTime;
 
-public class EditableSubjectsList extends EditableDemoList {
-    public EditableSubjectsList() {
+public class EditableSubjectsListTemp extends EditableDemoList {
+    public EditableSubjectsListTemp() {
         super();
         columnsTitle = new String[]{
                 "course id",

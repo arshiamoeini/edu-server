@@ -13,9 +13,7 @@ import java.util.Set;
 @Table(name = "faculty")
 public class Faculty implements Serializable {
     @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
-    @Column
+    @Column(name = "name", nullable = false)
     private String name;
     @OneToMany(mappedBy = "faculty")
     private Set<Student> students;
@@ -32,8 +30,7 @@ public class Faculty implements Serializable {
     public Faculty() {
     }
 
-    public Faculty(int id, String name) {
-        this.id = id;
+    public Faculty(String name) {
         this.name = name;
         students = new HashSet<>();
         professors = new ArrayList<>();
@@ -43,7 +40,7 @@ public class Faculty implements Serializable {
 
 
     public void addStudent(Student student) {
-        students.add(student);
+        getStudents().add(student);
     }
     public void addProfessor(Professor professor) {
         professors.add(professor);
@@ -55,9 +52,6 @@ public class Faculty implements Serializable {
         classrooms.add(classroom);
     }
 
-    public Integer getId() {
-        return id;
-    }
     public String getName() {
         return name;
     }
@@ -77,9 +71,6 @@ public class Faculty implements Serializable {
         return classrooms;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
     public void setName(String name) {
         this.name = name;
     }
@@ -102,8 +93,7 @@ public class Faculty implements Serializable {
     @Override
     public String toString() {
         return "Faculty{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", students=" + students +
                 ", professors=" + professors +
                 ", assistantId=" + assistantId +

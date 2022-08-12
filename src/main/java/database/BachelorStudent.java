@@ -5,6 +5,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,7 @@ public class BachelorStudent extends Student implements Serializable {
 
     public BachelorStudent(long id, String password, Faculty faculty) {
         super(id, password, faculty);
+        majorRequests = new ArrayList<>();
     }
 
     public List<MajorRequest> getMajorRequests() {
@@ -27,5 +29,9 @@ public class BachelorStudent extends Student implements Serializable {
 
     public void setMajorRequests(List<MajorRequest> majorRequests) {
         this.majorRequests = majorRequests;
+    }
+
+    public void addMajorRequest(MajorRequest majorRequest) {
+        getMajorRequests().add(majorRequest);
     }
 }

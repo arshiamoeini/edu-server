@@ -20,11 +20,8 @@ public class ChainHandelResponsibility {
         Set<Classroom> classrooms = Database.getInstance().getWeeklyClassrooms(Long.parseLong(userId));
         String timesData = ArrayToString(classrooms.stream().map(cl -> (new WeeklyClassSchedule(cl, false))));
         String timesExam = ArrayToString(classrooms.stream().map(cl -> (new WeeklyClassSchedule(cl, true))));
-        Request request = new Request(null, new ArrayList<>());
-        request.addData(timesData);
-        request.addData(timesExam);
         Database.getInstance().closeSession();
-        return request;
+        return new Request(null, timesData, timesExam);
     };
     private Function<Request, Request> getCourseViewsData = x -> {
         String userId = x.getLastData();
@@ -82,11 +79,49 @@ public class ChainHandelResponsibility {
     private Function<Request, Request> addAccommodationRequest = x -> {
         return null; //TODO
     };
+    private Function<Request, Request> addMajorRequest = x -> {
+        BachelorStudent student = (BachelorStudent) Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
+        MajorRequest majorRequest = new MajorRequest(Database.getInstance().getFacultyByName(x.getLastData()));
+        sendMajorNotifications(student, majorRequest);
+        Database.getInstance().addMajorRequest(student, majorRequest);
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> addDefaultClassroom = x -> {
+    //    Database.getInstance().addDefaultClassroom(x.getData().get(0), x.getData().get(1));
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> addStudent = x -> {
+        Faculty faculty = new Faculty(x.getLastData());
+        int result = -1;
+        if (faculty != null) {
+            result = Database.getInstance().addStudent(faculty, gson.fromJson(x.getLastData(), String[].class));
+            Database.getInstance().closeSession();
+        }
+        return null; //TODO
+    };
+
+    private void sendMajorNotifications(BachelorStudent student, MajorRequest majorRequest) {
+        EducationalAssistant sourceFacultyAssistant = student.getFaculty().getAssistant();
+        EducationalAssistant majoredFacultyAssistant = majorRequest.getTargetFaculty().getAssistant();
+        String majoredFacultyName = majorRequest.getTargetFaculty().getName();
+        Database.getInstance().addNotification(sourceFacultyAssistant, getMajorNotification(majoredFacultyName, student, sourceFacultyAssistant));
+        Database.getInstance().addNotification(majoredFacultyAssistant, getMajorNotification(majoredFacultyName, student, sourceFacultyAssistant));
+    }
+
+    private Notification getMajorNotification(String facultyName, BachelorStudent student, EducationalAssistant assistant) {
+        return new Notification(NotificationType.MAJOR_REQUEST,
+                "major request",
+                student.getId(),
+                String.format("my id is %s and I wan,t to major with %s faculty", student.getId(), facultyName),
+                student.getName());
+    }
 
     private Notification getTurnToDefendTheDissertationNotification(User user) {
         return new Notification(NotificationType.INFO,
                 "your turn decided", 0, String.format("On %s you can defend your dissertation.",
-                RealTime.dateAndTime(LocalDateTime.now().plusDays(12))), "sharif", user);
+                RealTime.dateAndTime(LocalDateTime.now().plusDays(12))), "sharif");
     }
 
     private Notification getWithdrawalNotification(User user, Student student) {
@@ -94,17 +129,15 @@ public class ChainHandelResponsibility {
                 "withdrawal from education",
                 student.getId(),
                 "can,t continue",
-                student.getName(),
-                user);
+                student.getName());
     }
 
     private Notification getNotificationForCertificate(User user, String text, Faculty faculty) {
         return new Notification(NotificationType.INFO,
                 "certificate",
-                faculty.getId(),
+                faculty.getAssistantId(),
                 text,
-                faculty.getName(),
-                user);
+                faculty.getName());
     }
 
     private Notification getNotificationForRecommendation(Professor professor, User user) {
@@ -112,8 +145,7 @@ public class ChainHandelResponsibility {
                 "recommendation",
                 user.getId(),
                 getRecommendedText(professor.getName(), user),
-                user.getName(),
-                professor);
+                user.getName());
     }
 
     private String getRecommendedText(String professorName, User student) {
@@ -125,9 +157,9 @@ public class ChainHandelResponsibility {
 
     private Function<Request, Request> getProfessors = x -> {
             Faculty faculty = Database.getInstance().getFacultyByName(x.getLastData());
-            String[] professorsName = faculty.getProfessors().stream()
-                    .map(p -> p.getName()).toArray(String[]::new);
-            return new Request(null, gson, professorsName);
+            ProfessorData[] professorsData = Database.getInstance().getProfessors(faculty).stream()
+                    .map(p -> new ProfessorData(p)).toArray(ProfessorData[]::new);//p.getName() == null ? "null" : p.getName())).toArray(String[]::new);
+            return new Request(null, gson.toJson(professorsData));
     };
     private Function<Request, Request> getMajorsStatus = x -> {
         BachelorStudent bachelorStudent = (BachelorStudent) Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
@@ -139,6 +171,67 @@ public class ChainHandelResponsibility {
         });
         return new Request(null, gson, majoredFacultiesName.toArray(), majorsStatus.toArray());
     };
+    private Function<Request, Request> getClassRoomWithFilter = x -> {
+        Stream<Classroom> classroomStream = getFilteredClassroom(x);
+        if (Boolean.valueOf(x.getLastData())) {
+            classroomStream = classroomStream.sorted((o1, o2) -> {
+                if (o1 == null || o2 == null || o1.getExamDate() == null || o2.getExamDate() == null) return 0;
+                return o1.getExamDate().compareTo(o2.getExamDate());
+            });//TODO add this one varible
+        }
+        Request request = new Request(null, gson, classroomStream.map(c -> new ClassroomData(c)).toArray());
+        Database.getInstance().closeSession();
+   //     List<Classroom> classrooms = classroomStream.collect(Collectors.toList());
+        return request;
+    };
+
+    private Stream<Classroom> getFilteredClassroom(Request x) {
+        Faculty faculty = Database.getInstance().getFacultyByName(x.getLastData());
+        Program program = Program.values()[Integer.parseInt(x.getLastData())];
+        return Database.getInstance().getClassrooms(faculty).stream().
+                filter(c -> c.getProgram() == program);
+    }
+
+    private Function<Request, Request> getUserMainPageData = x -> {
+        long id = Long.parseLong(x.getLastData());
+        User user = Database.getInstance().getUser(id);
+        try {
+            String nationalCode = String.valueOf(user.getNationalCode());
+            String phoneNumber = String.valueOf(user.getPhoneNumber());
+            Request request = new Request(user.getName(), user.getEmail(), nationalCode, phoneNumber, user);
+            return request;
+        } catch (Exception e) {
+            System.out.println("why");
+            return null;
+        }
+    };
+    private Function<Request, Request> getProfessorMainPageData = getUserMainPageData.andThen(x -> {
+            Professor professor = (Professor) x.getLast();
+            x.addData(gson, professor.getRoomNumber());
+            x.addData(String.valueOf(professor.getMasterLevel()));
+            Database.getInstance().closeSession();
+            return x;
+    });
+    private Function<Request, Request> getStudentMainPageData = getUserMainPageData.andThen(x -> {
+        Student student = (Student) x.getLast();
+        x.addData(gson, student.isRegistrationLicense());
+        x.addData(gson, student.getRegistrationTime());
+        addSpecialField(x, student);
+        Database.getInstance().closeSession();
+        return x;
+    });
+
+    private void addSpecialField(Request x, Student student) {
+        if (student.getSupervisor() == null) {
+            x.addData("no one");
+        } else {
+            x.addData(gson, student.getSupervisor().getName());
+        }
+        x.addData("null"); //TODO
+        x.addData(String.valueOf(student.getProgram()));
+        x.addData(String.valueOf(student.getEducationalStatus()));
+    }
+
     private Function<Request, Request> getRequestedData = x -> {
         switch (x.getType()) {
             case GET_WEEKLY_CLASS_DATA:
@@ -151,8 +244,14 @@ public class ChainHandelResponsibility {
                 return getProfessors.apply(x);
             case GET_MAJORS_STATUS:
                 return getMajorsStatus.apply(x);
+            case GET_ClASS_ROOM_WITH_FILTER:
+                return getClassRoomWithFilter.apply(x);
+            case GET_PROFESSOR_MAIN_PAGE_DATA:
+                return getProfessorMainPageData.apply(x);
+            case GET_STUDENT_MAIN_PAGE_DATA:
+                return getStudentMainPageData.apply(x);
             default:
-                return null;
+                return new Request(null, new ArrayList<>());
         }
     };
     <T> String ArrayToString(Stream<T> stream) {
@@ -178,7 +277,7 @@ public class ChainHandelResponsibility {
             Request response = (request.getType() == RequestType.CHECK_CONNECTION ?
                     new Request(null, new ArrayList<>()) :
                     getRequestedData.apply(request));
-            server.send(id, response.getData().stream().toArray(String[]::new));
+            server.send(id, response.getData().stream().toArray());
         } else {
             doRequestTask(request);
         }
@@ -200,6 +299,15 @@ public class ChainHandelResponsibility {
                 break;
             case ADD_ACCOMMODATION_REQUEST:
                 addAccommodationRequest.apply(request);
+                break;
+            case ADD_MAJOR_REQUEST:
+                addMajorRequest.apply(request);
+                break;
+            case ADD_DEFAULT_CLASSROOM:
+                addDefaultClassroom.apply(request);
+                break;
+            case ADD_STUDENT:
+                addStudent.apply(request);
                 break;
         }
     }

@@ -48,6 +48,7 @@ public class RealTime {
         return dateTime.format(myFormatObj);
     }
     public static LocalDateTime readLocalDateTime(String text) {
+        if (text.equals("null")) return null;
         return LocalDateTime.from(myFormatObj.parse(text));
     }
     public static DateTimeFormatter myFormatObjWeek = DateTimeFormatter.ofPattern("EEE hh:mm a");

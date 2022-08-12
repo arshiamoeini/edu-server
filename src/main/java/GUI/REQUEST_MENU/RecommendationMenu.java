@@ -7,6 +7,8 @@ import GUI.UserConstantInformation;
 import client.Client;
 import client.Pulsator;
 import com.google.gson.Gson;
+import org.hibernate.event.spi.ClearEvent;
+import shared.ProfessorData;
 import shared.RequestType;
 
 import javax.swing.*;
@@ -14,6 +16,7 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RecommendationMenu implements PropertyChangeListener, Updatable {
     private JPanel recommendationMenu;
@@ -59,15 +62,18 @@ public class RecommendationMenu implements PropertyChangeListener, Updatable {
         facultySelector = new OptionCentricText(OptionCentricText.OptionsFrom.Faculties);
         facultySelector.addPropertyChangeListener(this);
         recommendationField.add(facultySelector, BorderLayout.CENTER);
-        professorSelector = new OptionCentricText(new Object[]{});
-        recommendationField.add(professorSelector,
-                BorderLayout.EAST);
+   //     professorSelector = new OptionCentricText(new Object[]{});
+   //     recommendationField.add(professorSelector,
+    //            BorderLayout.EAST);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        if (professorSelector == null) return;
         recommendationField.remove(professorSelector); //change faculty
         professorSelector = null;
+        Client.getSender().send(RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY,
+                facultySelector.getSelectedItemName());
     }
 
     @Override
@@ -81,13 +87,23 @@ public class RecommendationMenu implements PropertyChangeListener, Updatable {
 
     @Override
     public RequestType getUpdateRequest() {
-        Pulsator.getInstance().setSelectedFacultyName(facultySelector.getSelectedItemName());
-        return RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY;
+       // if (professorSelector == null) {
+       //     Pulsator.getInstance().setSelectedFacultyName();
+         ///   return RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY;
+       // } else {
+            return RequestType.CHECK_CONNECTION;
+       // }
     }
 
     @Override
     public void update(ArrayList<String> data, Gson gson) throws Exception {
-        String[] professorsName = gson.fromJson(data.get(0), String[].class);
-        professorSelector = new OptionCentricText(professorsName);
+        if (!data.isEmpty()) {
+            String[] professorsName = Arrays.stream(gson.fromJson(data.get(0), ProfessorData[].class)).
+                    map(x -> x.getName()).toArray(String[]::new);
+            professorSelector = new OptionCentricText(professorsName);
+            recommendationField.add(professorSelector);
+            panel.revalidate();
+            panel.repaint();
+        }
     }
 }

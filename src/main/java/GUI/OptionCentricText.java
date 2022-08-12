@@ -1,6 +1,8 @@
 package GUI;
 
 import MODELS.*;
+import shared.MasterLevel;
+import shared.Program;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -37,11 +39,11 @@ public class OptionCentricText extends JComboBox {
             case Faculties:
                 return faculties;
             case MasterLevel:
-                return (Arrays.stream(ProfessorTemp.MasterLevel.values()).
-                        map(ProfessorTemp.MasterLevel::getMassage).toArray());
+                return (Arrays.stream(MasterLevel.values()).
+                        map(MasterLevel::getMassage).toArray());
             case Program:
-                return (Arrays.stream(CourseTemp.Program.values()).
-                        map(CourseTemp.Program::getMassage).toArray());
+                return (Arrays.stream(Program.values()).
+                        map(Program::getMassage).toArray());
         }
         return new Object[0];
     }

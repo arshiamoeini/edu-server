@@ -33,6 +33,7 @@
         <mapping class="database.Course"/>
         <mapping class="database.Classroom"/>
         <mapping class="database.CourseView"/>
+        <mapping class="database.ClassroomRating"/>
         <mapping class="database.CourseViewRegistration"/>
         <mapping class="database.Notification"/>
         <mapping class="database.MajorRequest"/>

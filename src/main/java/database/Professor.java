@@ -1,5 +1,8 @@
 package database;
 
+import shared.MasterLevel;
+import shared.Program;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -20,6 +23,10 @@ public class Professor extends User implements Serializable {
         @Override
         public String getMassage() { return message; }
     }*/
+    @Enumerated(EnumType.STRING)
+    private MasterLevel masterLevel = MasterLevel.ASSISTANT_PROFESSOR;
+    @Column
+    private long phoneNumber;
     @Column
     private long roomNumber;
     @ManyToOne
@@ -30,15 +37,15 @@ public class Professor extends User implements Serializable {
     @OneToMany(mappedBy = "teacher")
     private Set<CourseView> courseViews;
 
-  public Professor() {
+    public Professor() {
     }
 
-  public Professor(long id, String password, Faculty faculty) {
-    super(id, password);
-    this.faculty = faculty;
-    classrooms = new HashSet<>();
-    courseViews = new HashSet<>();
-  }
+    public Professor(long id, String password, Faculty faculty) {
+      super(id, password);
+      this.faculty = faculty;
+      classrooms = new HashSet<>();
+      courseViews = new HashSet<>();
+    }
 
   public void addClassroom(Classroom classroom) {
       classrooms.add(classroom);
@@ -56,6 +63,12 @@ public class Professor extends User implements Serializable {
   public Set<CourseView> getCourseViews() {
     return courseViews;
   }
+  public MasterLevel getMasterLevel() {
+    return masterLevel;
+  }
+  public long getPhoneNumber() {
+    return phoneNumber;
+  }
 
   public void setRoomNumber(long roomNumber) {
       this.roomNumber = roomNumber;
@@ -69,17 +82,25 @@ public class Professor extends User implements Serializable {
   public void setCourseViews(Set<CourseView> courseViews) {
     this.courseViews = courseViews;
   }
+  public void setMasterLevel(MasterLevel masterLevel) {
+    this.masterLevel = masterLevel;
+  }
+  public void setPhoneNumber(long phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
   @Override
   public String toString() {
     return "Professor{" +
-            "roomNumber=" + roomNumber +
+            "masterLevel=" + masterLevel +
+            ", roomNumber=" + roomNumber +
             ", faculty=" + faculty +
             ", classrooms=" + classrooms +
+            ", courseViews=" + courseViews +
             '}';
   }
 
   public void addCourseView(CourseView courseView) {
-    courseViews.add(courseView);
+    getCourseViews().add(courseView);
   }
 }

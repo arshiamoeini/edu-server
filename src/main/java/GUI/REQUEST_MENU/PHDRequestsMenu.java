@@ -51,7 +51,7 @@ public class PHDRequestsMenu implements RequestMenuPanel {
 
     @Override
     public RequestType getUpdateRequest() {
-        return null;
+        return RequestType.CHECK_CONNECTION;
     }
 
     @Override

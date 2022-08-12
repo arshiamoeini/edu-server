@@ -3,11 +3,11 @@ package GUI;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class SubjectsList extends DemoList {
+public class SubjectsListTemp extends DemoList {
 
 //    int[] padeSizeInRow = {};
 
-    public SubjectsList() {
+    public SubjectsListTemp() {
         super();
         //setting
     //    setSize(new Dimension(MainFrame.MAIN_WIDTH - 100, MainFrame.MAIN_HEIGHT - 100));

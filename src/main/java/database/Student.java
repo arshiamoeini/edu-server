@@ -1,5 +1,7 @@
 package database;
 
+import shared.Program;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,19 +16,25 @@ public class Student extends User implements Serializable {
     //    return Student.class;
     // }
 
-    @Column
-    public EducationalStatus educationalStatus;
+    @Enumerated(EnumType.STRING)
+    public EducationalStatus educationalStatus = EducationalStatus.ALLOWED_TO_REGISTER;
    // private Professor Supervisor;
     @Column
     private boolean registrationLicense;
     @Column
     private LocalDateTime registrationTime;
     @ManyToOne
+    @JoinColumn(name = "supervisor_id")
+    private Professor Supervisor;
+    @ManyToOne
     @JoinColumn(name = "faculty_id", nullable = false)
     private Faculty faculty;
-
+    @OneToMany(mappedBy = "student")
+    private Set<ClassroomRating> classroomRates;
     @OneToMany(mappedBy = "student")
     private Set<CourseViewRegistration> registeredCourse;
+    @Enumerated(EnumType.STRING)
+    private Program program;
     public Student() {
     }
 
@@ -34,6 +42,17 @@ public class Student extends User implements Serializable {
         super(id, password);
         this.faculty = faculty;
         registeredCourse = new HashSet<>();
+        classroomRates = new HashSet<>();
+    }
+
+    public Student(Faculty faculty, String[] data) {
+        this(Long.parseLong(data[0]), data[1], faculty);
+        setName(data[2]);
+        setEmail(data[3]);
+        setProgram(Program.values()[Integer.parseInt(data[4])]);
+        setNationalCode(Long.parseLong(data[5]));
+        setPhoneNumber(Long.parseLong(data[6]));
+        setSupervisor(Database.getInstance().getProfessor(Long.parseLong(data[7])));
     }
 
     /* public void setSupervisor(Professor supervisor) {
@@ -69,6 +88,15 @@ public class Student extends User implements Serializable {
     public Set<CourseViewRegistration> getRegisteredCourse() {
         return registeredCourse;
     }
+    public Set<ClassroomRating> getClassroomRates() {
+        return classroomRates;
+    }
+    public Program getProgram() {
+        return program;
+    }
+    public Professor getSupervisor() {
+        return Supervisor;
+    }
 
     public void setEducationalStatus(EducationalStatus educationalStatus) {
         this.educationalStatus = educationalStatus;
@@ -85,6 +113,15 @@ public class Student extends User implements Serializable {
     public void setRegisteredCourse(Set<CourseViewRegistration> registeredCourse) {
         this.registeredCourse = registeredCourse;
     }
+    public void setClassroomRates(Set<ClassroomRating> classroomRates) {
+        this.classroomRates = classroomRates;
+    }
+    public void setProgram(Program program) {
+        this.program = program;
+    }
+    public void setSupervisor(Professor supervisor) {
+        Supervisor = supervisor;
+    }
 
     @Override
     public String toString() {
@@ -92,13 +129,20 @@ public class Student extends User implements Serializable {
                 "educationalStatus=" + educationalStatus +
                 ", registrationLicense=" + registrationLicense +
                 ", registrationTime=" + registrationTime +
+                ", Supervisor=" + Supervisor +
                 ", faculty=" + faculty +
-                ", RegisteredCourse=" + registeredCourse +
+                ", classroomRates=" + classroomRates +
+                ", registeredCourse=" + registeredCourse +
+                ", program=" + program +
                 '}';
     }
 
     public void addRegisteredCourse(CourseViewRegistration registration) {
-        registeredCourse.add(registration);
+        getRegisteredCourse().add(registration);
+    }
+
+    public void addClassroom(ClassroomRating classroomRating) {
+        getClassroomRates().add(classroomRating);
     }
 }
 

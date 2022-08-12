@@ -9,14 +9,14 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SelectMenuHandler implements ChangeListener {
-    ArrayList<Updatable> pages = new ArrayList<>();
+    protected ArrayList<Updatable> pages = new ArrayList<>();
     /*
         the panel is in mainPage as PanelDesigner and Updatable
         panel should have layout = CardLayout and main with type JTabbedPane
         this listener add on the main JTabbedPane that is in component of panel
         so with click on that menus bar we Scroll between cards of panel
      */
-    private JPanel panel;
+    protected JPanel panel;
     public SelectMenuHandler(Updatable mainPage, JPanel panel) {
         addUpdatable(mainPage);
         this.panel = panel;

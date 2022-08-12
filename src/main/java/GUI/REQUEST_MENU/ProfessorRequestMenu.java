@@ -130,11 +130,10 @@ public class ProfessorRequestMenu implements RequestMenuPanel {
 
     @Override
     public RequestType getUpdateRequest() {
-        return null;
+        return RequestType.CHECK_CONNECTION;
     }
 
     @Override
     public void update(ArrayList<String> data, Gson gson) throws Exception {
-
     }
 }

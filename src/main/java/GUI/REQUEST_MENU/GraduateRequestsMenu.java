@@ -44,7 +44,7 @@ public class GraduateRequestsMenu implements RequestMenuPanel {
     }
     private void recommendationInit() {
         RecommendationMenu recommendationMenu = new RecommendationMenu();
-        graduateStudent.addChangeListener(new SelectMenuHandler(recommendationMenu, panel));
+        graduateStudent.addChangeListener(new SelectRequestMenuHandler(recommendationMenu, panel));
         this.recommendationField.add(recommendationMenu.getPanel());
     }
 

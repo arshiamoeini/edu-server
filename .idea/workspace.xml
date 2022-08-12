@@ -5,90 +5,132 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f348a1a-5491-4bc2-ab5d-f0f8118f0bd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/CertificateMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/CertificateMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/WithdrawalMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/WithdrawalMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/MajorRequestTemp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/MajorRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/DemoSet.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/DemoSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableSubjectList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsListe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/SelectRequestMenuHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RowPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SubjectList.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/SubjectList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/addStudentPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/addStudentPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODELS/EducationalStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/ClassroomRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/ClassroomData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/MasterLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/ProfessorData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shared/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/1003" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/4321" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DATE_BASE/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/EditableSubjectsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/EditableSubjectsListTemp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/EducationalServicesDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ListDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainPage.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ManePagePanelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/NotificationsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/OptionCentricText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/GraduateRequestsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/PHDRequestsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/ProfessorRequestMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RequestMenuPanelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RequestMenuPanelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/RecommendationMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/RealTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/RealTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/SelectMenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/SelectMenuHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LOGIC/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/BachelorStudentTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/BachelorStudentTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/StudentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/SubjectsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/SubjectsListTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/UserConstantInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LOGIC/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/CourseTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/CourseTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/FacultyTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/ProfessorTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/ProfessorTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODELS/StudentTemp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Pulsator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/BachelorStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/BachelorStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Classroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Classroom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Faculty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/MajorRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/MajorRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/NotificationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChainHandelResponsibility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChainHandelResponsibility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shared/NotificationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/NotificationData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shared/ConstructorData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/ConstructorData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shared/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shared/RequestType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/1234" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/1234" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DATE_BASE/InitialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/EditableSubjectsList$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/EditableSubjectsList.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/EducationalServicesDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/EducationalServicesDesigner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainPagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainPagePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/ListDesigner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ListDesigner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/ManePagePanelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ManePagePanelFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/NormalUserPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/NormalUserPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText$OptionsFrom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText$OptionsFrom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/OptionCentricText.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/ProfessorPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ProfessorPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/ProfessorsList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/ProfessorsList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/BachelorStudentRequestsMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/BachelorStudentRequestsMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/BachelorStudentRequestsMenu$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/GraduateRequestsMenu$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/GraduateRequestsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/GraduateRequestsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/PHDRequestsMenu$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/PHDRequestsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/PHDRequestsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/ProfessorRequestMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/RequestMenuPanelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/REQUEST_MENU/RequestMenuPanelFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SelectMenuHandler$outMainPageButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/SelectMenuHandler$outMainPageButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/RealTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/RealTime.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/SelectMenuHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/SelectMenuHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/StudentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/StudentPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Command.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Logger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/BachelorStudentTemp$MajorRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/BachelorStudentTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/BachelorStudentTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SubjectsList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/UserConstantInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/UserConstantInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter$SubjectFilterDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter$SubjectFilterDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LOGIC/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LOGIC/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp$EducationalRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp$EducationalRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp$RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp$RequestType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/FacultyTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/ProfessorTemp$MasterLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/ProfessorTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/ProfessorTemp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/StudentTemp$EducationalStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODELS/StudentTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODELS/StudentTemp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/Pulsator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Pulsator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/database/BachelorStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/BachelorStudent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/database/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Database.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/database/Faculty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Faculty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Professor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/database/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logs/1234" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logs/1234" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/ServerMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/shared/ConstructorData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shared/ConstructorData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/shared/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shared/Request.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/shared/RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/shared/RequestType.class" afterDir="false" />
     </list>
@@ -102,8 +144,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -148,6 +190,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;288&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/arshia/IdeaProjects/untitled1&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -192,8 +235,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659787644201</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="save">
+      <created>1660069786794</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660069786794</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,7 +323,8 @@
     <MESSAGE value="lot of work" />
     <MESSAGE value="courseware" />
     <MESSAGE value="notification gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification gui" />
+    <MESSAGE value="save" />
+    <option name="LAST_COMMIT_MESSAGE" value="save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,28 +336,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
-          <line>119</line>
+          <line>136</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/CoursewarePanel.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/ProfessorsList.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/database/Database.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="16" />
+          <line>222</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GUI/StudentPage.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="17" />
+          <url>file://$PROJECT_DIR$/src/main/java/server/ChainHandelResponsibility.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GUI/REQUEST_MENU/BachelorStudentRequestsMenu.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/main/java/server/ChainHandelResponsibility.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GUI/addStudentPanel.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

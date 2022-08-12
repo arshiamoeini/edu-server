@@ -3,5 +3,5 @@ package database;
 public enum NotificationType {
     RECOMMENDATION,
     INFO,
-    WITHDRAWAL;
+    WITHDRAWAL, MAJOR_REQUEST;
 }

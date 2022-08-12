@@ -16,6 +16,12 @@ public class User implements Serializable {
     private int hashOfPassword;
     @Column
     String name;
+    @Column
+    String email;
+    @Column
+    long nationalCode;
+    @Column
+    long phoneNumber;
     @OneToMany
     @OrderBy("id")
     List<Notification> notifications;
@@ -42,6 +48,15 @@ public class User implements Serializable {
     public List<Notification> getNotifications() {
         return notifications;
     }
+    public String getEmail() {
+        return email;
+    }
+    public long getNationalCode() {
+        return nationalCode;
+    }
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -55,6 +70,15 @@ public class User implements Serializable {
     public void setNotifications(List<Notification> notifications) {
         this.notifications = notifications;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setNationalCode(long nationalCode) {
+        this.nationalCode = nationalCode;
+    }
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public String toString() {
@@ -62,10 +86,14 @@ public class User implements Serializable {
                 "id=" + id +
                 ", hashOfPassword=" + hashOfPassword +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", nationalCode=" + nationalCode +
+                ", phoneNumber=" + phoneNumber +
+                ", notifications=" + notifications +
                 '}';
     }
 
     public void addNotification(Notification notification) {
-        notifications.add(notification);
+        getNotifications().add(notification);
     }
 }

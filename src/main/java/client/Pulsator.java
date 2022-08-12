@@ -28,7 +28,7 @@ public class Pulsator extends Thread {
         time = LocalTime.now();
         while (true) {
             try {
-                Thread.sleep(setAndGetPing(0));
+                Thread.sleep(2 * setAndGetPing(0));
             //    LocalDateTime x = LocalDateTime.now();
             //    System.out.println(time + " " +x + "   "+ (int) time.until(x, ChronoUnit.MILLIS));
                 if (offline) {
@@ -36,12 +36,12 @@ public class Pulsator extends Thread {
                 }
                 if (true) {//countPulses < 5) {
                     RequestType requestType = setAndGetCurrentPage(null).getUpdateRequest();
-                    if (requestType == RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY) {
-                        Client.getInstance().send(requestType, selectedFacultyName);
-                    } else {
+                  //  if (requestType == RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY) {
+                  //      Client.getInstance().send(requestType, selectedFacultyName);
+                   // } else {
                         Client.getSender().send(requestType,
                                 UserConstantInformation.getInstance().getUserId());
-                    }
+                   // }
                     addPulseThatGetNotResponseOrReset(false);
                 } else {
                     offline = true;

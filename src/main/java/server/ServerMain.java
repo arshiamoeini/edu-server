@@ -20,6 +20,7 @@ public class  ServerMain {
   //      User user = Database.getInstance().getUser(1003);
    //     System.out.println(user.getNotifications().get(1).getTitle());
     //    Database.getInstance().closeSession();
+    //    Database.getInstance().getFacultyByName("math");
                Server server = new Server();
            server.start();
     }

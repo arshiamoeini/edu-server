@@ -4,6 +4,7 @@ import MODELS.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import database.UserTemp;
+import shared.Program;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -146,10 +147,10 @@ public class InitialData {
         faculty1.addEducationalRequest(Faculty.RequestType.MAJOR, "math", 12);
         */
 
-        faculty1.addCourses("riazi 1", 2004, new ArrayList<CourseTemp>(), new ArrayList<>(), CourseTemp.Program.UNDERGRADUATE);
+        faculty1.addCourses("riazi 1", 2004, new ArrayList<CourseTemp>(), new ArrayList<>(), Program.UNDERGRADUATE);
         ArrayList<CourseTemp> pre = new ArrayList<>();
         pre.add(faculty1.getCourses().get(0));
-        faculty1.addCourses("riazi 2", 2005, pre, new ArrayList<>(), CourseTemp.Program.UNDERGRADUATE);
+        faculty1.addCourses("riazi 2", 2005, pre, new ArrayList<>(), Program.UNDERGRADUATE);
 
         ArrayList<LocalDateTime> times = new ArrayList<>();
         times.add(LocalDateTime.of(1401, 1, 1, 12, 30));
