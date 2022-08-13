@@ -18,7 +18,7 @@ public class SelectMenuHandler implements ChangeListener {
      */
     protected JPanel panel;
     public SelectMenuHandler(Updatable mainPage, JPanel panel) {
-        addUpdatable(mainPage);
+        addUpdatable(1, mainPage);
         this.panel = panel;
     }
 
@@ -27,7 +27,7 @@ public class SelectMenuHandler implements ChangeListener {
         int index = ((JTabbedPane) changeEvent.getSource()).getSelectedIndex();
 
         CardLayout cards = (CardLayout) panel.getLayout();
-        if (index < pages.size()) {
+        if (index < pages.size() && pages.get(index) != null) {
             cards.show(panel, "Card" + (index + 1));
             pages.get(index).enterPage();
         }
@@ -53,8 +53,9 @@ public class SelectMenuHandler implements ChangeListener {
         }*/
     }
 
-    public void addUpdatable(Updatable updatable) {
-        pages.add(updatable);
+    public void addUpdatable(int cartIndex, Updatable updatable) {
+        while (pages.size() < cartIndex) pages.add(null);
+        pages.set(cartIndex - 1, updatable);
     }
 
     public class outMainPageButton extends JButton {

@@ -8,12 +8,12 @@ import java.util.Set;
 
 public class DemoSet {
     private JPanel panel;
-    private JPanel pane;
+    private JPanel panel1;
     private Map<Long, RowPanel> rowPanelMap;
 
     public DemoSet() {
         rowPanelMap = new HashMap<>();
-        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
     }
 
     protected void designTopics() {
@@ -29,7 +29,7 @@ public class DemoSet {
     }
 
     public void addRow(int index, long id, RowPanel rowPanel) {
-        pane.add(rowPanel, index); //topic first
+        panel1.add(rowPanel, index); //topic first
         rowPanelMap.put(id, rowPanel);
     }
     public void addRow(long id, RowPanel rowPanel) {
@@ -43,8 +43,11 @@ public class DemoSet {
         return rowPanelMap.keySet();
     }
 
-    public void remove(Long id) {
-        pane.remove(rowPanelMap.remove(id));
+    public void removeRow(Long id) {
+        if (id == 0) {
+            return;
+        }
+        panel1.remove(rowPanelMap.remove(id));
     }
 
     public boolean contain(long id) {
@@ -56,7 +59,10 @@ public class DemoSet {
     }
 
     protected void removeAll() {
-        pane.removeAll();
+        panel1.removeAll();
         rowPanelMap.clear();
+    }
+    public Set<Map.Entry<Long, RowPanel>> getElements() {
+        return rowPanelMap.entrySet();
     }
 }

@@ -1,6 +1,6 @@
 package GUI;
 
-import GUI.REQUEST_MENU.*;
+import GUI.requestmenu.*;
 import com.google.gson.Gson;
 import shared.RequestType;
 import shared.UserType;

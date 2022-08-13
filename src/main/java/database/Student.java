@@ -34,7 +34,7 @@ public class Student extends User implements Serializable {
     @OneToMany(mappedBy = "student")
     private Set<CourseViewRegistration> registeredCourse;
     @Enumerated(EnumType.STRING)
-    private Program program;
+    private Program program = Program.UNDERGRADUATE;
     public Student() {
     }
 

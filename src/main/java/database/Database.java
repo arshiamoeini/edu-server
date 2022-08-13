@@ -59,6 +59,7 @@ public class Database {
         educationalAssistant.addCourseView(courseView1);
         CourseViewRegistration registration = courseView.addStudent(student, false);
         ClassroomRating classroomRating = classroom1.addStudent(student);
+        classroomRating.setScore(12);
 
         Notification notif1 = new Notification(NotificationType.INFO, "salam", student.getId(),
                 "khobi", student.getName());
@@ -163,6 +164,12 @@ public class Database {
                 map(x -> x.getName()).
                 toArray(String[]::new);
     }
+    public List<Faculty> getFaculties() {
+        if(session == null) session = sessionFactory.openSession();
+        String hql = "FROM Faculty f ORDER BY f.id ASC";
+        return session.createQuery(hql, Faculty.class).
+                getResultList();
+    }
 
     public Course getCourse(int id) {
         Session session = sessionFactory.openSession();
@@ -175,7 +182,8 @@ public class Database {
     public Classroom getClassroom(long id) {
         Session session = sessionFactory.openSession();
         Classroom classroom = session.get(Classroom.class, id);
-        System.out.println(classroom.getTeacher().getId());
+//        System.out.println(classroom.getTeacher().getId());
+        session.close();
        // System.out.println(classroom.getProfessor1().getId());//getClassrooms().stream().map(Classroom::getId).collect(Collectors.toList()));
         return classroom;
     }
@@ -294,9 +302,61 @@ public class Database {
     private void addStudent(Faculty faculty, Student student) {
         session.beginTransaction();
         faculty.addStudent(student);
-       // session.update(faculty);
+        session.update(faculty);
         session.save(student);
         session.getTransaction().commit();
     }
 
+    public Set<ClassroomRating> getRegisteredCourses(Student student) {
+        if (session == null) session = sessionFactory.openSession();
+        Student superStudent = session.find(Student.class, student.getId());
+        return superStudent.getClassroomRates();
+    }
+
+    public ClassroomRating getRating(Long id) {
+        if(session == null) session = sessionFactory.openSession();
+        ClassroomRating rating = session.get(ClassroomRating.class, id);
+    //    System.out.println(classroom.getTeacher().getId());
+        // System.out.println(classroom.getProfessor1().getId());//getClassrooms().stream().map(Classroom::getId).collect(Collectors.toList()));
+        return rating;
+    }
+
+    public void updateRating(ClassroomRating rating, double score, String protest, String answer) {
+        if (session == null) session = sessionFactory.openSession();
+        session.beginTransaction();
+        if (score != -1) rating.setScore(score);
+        if (protest != null) rating.setProtest(protest);
+        if (answer != null) rating.setAnswer(answer);
+        session.update(rating);
+        session.getTransaction().commit();
+    }
+
+    public Object getClassrooms(Professor professor) {
+        if (session == null) session = sessionFactory.openSession();
+        Professor superProfessor = session.find(Professor.class, professor.getId());
+        return superProfessor.getClassrooms();
+    }
+
+    public Set<ClassroomRating> getClassroomRatings(Classroom classroom) {
+        if (session == null) session = sessionFactory.openSession();
+        Classroom superClassroom = session.find(Classroom.class, classroom.getId());
+        return superClassroom.getStudentsRating();
+    }
+
+    public void updateClassroom(Classroom classroom, Boolean registered, Boolean goFinal) {
+        if (session == null) session = sessionFactory.openSession();
+        session.beginTransaction();
+        if (registered != null) classroom.setRegistered(registered);
+        if (goFinal != null) classroom.setaFinal(goFinal);
+        session.update(classroom);
+        session.getTransaction().commit();
+    }
+
+    public void setTimeToTakingClasses(Faculty faculty, boolean timeToTakingClasses) {
+        if (session == null) session = sessionFactory.openSession();
+        session.beginTransaction();
+        faculty.setTimeToTakingClasses(timeToTakingClasses);
+        session.update(faculty);
+        session.getTransaction().commit();
+    }
 }

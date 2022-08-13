@@ -17,8 +17,6 @@ public class SubjectList extends DemoSet {
         super.designTopics();
     }
 
-
-
     public void addRow(long id, Object[] inRow) {
         if (!contain(id)) addRow(id, new RowPanel());
         RowPanel rowPanel = getRow(id);
@@ -32,6 +30,12 @@ public class SubjectList extends DemoSet {
         for (int i = 5; i < inRow.length; i++) {
             rowPanel.addCopyableDataInRow(inRow[i]);
         }
+    }
+    protected void updateRow(long id, Object[] inRow) {
+        RowPanel rowPanel = getRow(id);
+        rowPanel.getCellPane(5).setText(String.valueOf(inRow[5]));
+        rowPanel.getCellPane(6).setText(String.valueOf(inRow[6]));
+        //TODO
     }
     protected static String joinArrayListWithEndLine(ArrayList<Integer> array) {
         return array.stream().map(Object::toString).collect(Collectors.joining("\n"));

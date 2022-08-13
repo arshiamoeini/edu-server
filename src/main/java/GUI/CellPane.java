@@ -44,4 +44,8 @@ public class CellPane extends JPanel {
     public Component getLabel() {
         return label;
     }
+
+    public void setText(String text) {
+        ((JTextArea) label).setText(text == null ? "null" : text);
+    }
 }

@@ -67,4 +67,8 @@ public class Request {
         data.remove(data.size() - 1);
         return result;
     }
+
+    public boolean getBoolean(int i) {
+        return Boolean.valueOf(getData(i));
+    }
 }

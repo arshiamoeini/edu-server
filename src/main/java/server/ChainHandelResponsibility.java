@@ -9,6 +9,7 @@ import shared.*;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ChainHandelResponsibility {
@@ -101,6 +102,54 @@ public class ChainHandelResponsibility {
         }
         return null; //TODO
     };
+    private Function<Request, Request> addProtest = x -> {
+        ClassroomRating rating = Database.getInstance().getRating(Long.valueOf(x.getLastData()));
+        Database.getInstance().updateRating(rating, -1, x.getLastData(), null);
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> editRating = x -> {
+        ClassroomRatingData ratingData = gson.fromJson(x.getLastData(), ClassroomRatingData.class);
+        ClassroomRating rating = Database.getInstance().getRating(ratingData.getId());
+        Database.getInstance().updateRating(rating, ratingData.getScore(), null, ratingData.getAnswer());
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> registerClassroom = x -> {
+        Classroom classroom = Database.getInstance().getClassroom(Long.parseLong(x.getLastData()));
+        Database.getInstance().updateClassroom(classroom, true , null);
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> goFinalForClassroom = x -> {
+        Classroom classroom = Database.getInstance().getClassroom(Long.parseLong(x.getLastData()));
+        Database.getInstance().updateClassroom(classroom, null, true);
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> setIsTimeForTakingClasses = x -> {
+        Faculty faculty = Database.getInstance().getFacultyByName(x.getLastData());
+        Database.getInstance().setTimeToTakingClasses(faculty, x.getBoolean(0));
+        Database.getInstance().closeSession();
+        return null;
+    };
+    private Function<Request, Request> addRequestToGetClassroom = x -> {
+        Student student = Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
+        Classroom classroom = Database.getInstance().getClassroom(Long.parseLong(x.getLastData()));
+        EducationalAssistant educationalAssistant = student.getFaculty().getAssistant();
+        Database.getInstance().addNotification(educationalAssistant,
+                getNotificationForTakeClassroomForAssisstant(student, classroom));
+        Database.getInstance().closeSession();
+        return null;
+    };
+
+    private Notification getNotificationForTakeClassroomForAssisstant(Student student, Classroom classroom) {
+        return new Notification(NotificationType.REQUEST_TO_TAKE_COURSE,
+                "take course request", student.getId(),
+                String.format("I am student with id %s try to take course %s with teacher %s \n %s",
+                        student.getId(), classroom.getName(), classroom.getTeacherName(), student.getName()),
+                student.getName());
+    }
 
     private void sendMajorNotifications(BachelorStudent student, MajorRequest majorRequest) {
         EducationalAssistant sourceFacultyAssistant = student.getFaculty().getAssistant();
@@ -173,17 +222,35 @@ public class ChainHandelResponsibility {
     };
     private Function<Request, Request> getClassRoomWithFilter = x -> {
         Stream<Classroom> classroomStream = getFilteredClassroom(x);
-        if (Boolean.valueOf(x.getLastData())) {
-            classroomStream = classroomStream.sorted((o1, o2) -> {
-                if (o1 == null || o2 == null || o1.getExamDate() == null || o2.getExamDate() == null) return 0;
-                return o1.getExamDate().compareTo(o2.getExamDate());
-            });//TODO add this one varible
-        }
+        classroomStream = sortBy(classroomStream, x.getBoolean(1), x.getBoolean(0));
         Request request = new Request(null, gson, classroomStream.map(c -> new ClassroomData(c)).toArray());
         Database.getInstance().closeSession();
    //     List<Classroom> classrooms = classroomStream.collect(Collectors.toList());
         return request;
     };
+
+    private Stream<Classroom> sortBy(Stream<Classroom> classroomStream, boolean sortByExamData, boolean sortByName) {
+        return classroomStream.sorted((o1, o2) -> {
+          //  if (o1 == null ) return 0;
+            if (sortByExamData) {
+                int result = comperByExamData(o1.getExamDate(), o2.getExamDate());
+                if (result != 0) return result;
+            }
+            if (sortByName) {
+                int result = o1.getName().compareTo(o2.getName());
+                if (result != 0) return result;
+            }
+            return o1.getId().compareTo(o2.getId());
+        });
+    }
+
+    private int comperByExamData(LocalDateTime examDate, LocalDateTime examDate1) {
+        if (examDate == null && examDate1 == null) return 0;
+        if (examDate == null) return -1;
+        if (examDate1 == null) return 1;
+        return examDate.compareTo(examDate1);
+    }
+
 
     private Stream<Classroom> getFilteredClassroom(Request x) {
         Faculty faculty = Database.getInstance().getFacultyByName(x.getLastData());
@@ -232,6 +299,79 @@ public class ChainHandelResponsibility {
         x.addData(String.valueOf(student.getEducationalStatus()));
     }
 
+    private Function<Request, Request> getTempororyScorse = x -> {
+        Student student = Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
+        Database.getInstance().getRegisteredCourses(student).stream()
+                .filter(r -> r.getScore() != 0 && !r.isFinial())
+                .map(r -> new ClassroomTemporaryRate(r))
+                .forEach(r -> x.addData(gson, r));
+        Database.getInstance().closeSession();
+        return x;
+    };
+    private Function<Request, Request> getAvailClassrooms = x -> {
+        Professor professor = Database.getInstance().getProfessor(Long.parseLong(x.getLastData()));
+        if (professor instanceof EducationalAssistant) {
+            Faculty faculty = professor.getFaculty();
+            return new Request(Database.getInstance().getClassrooms(faculty), professor);
+        }
+        return new Request(Database.getInstance().getClassrooms(professor), professor);
+    };
+    private Function<Request, Request> getClassroomsNameData = getAvailClassrooms.andThen(x -> {
+        Professor professor = (Professor) x.getLast();
+        Set<Classroom> classrooms = (Set<Classroom>) x.getLast();
+        classrooms.stream()
+                .map(c -> new ClassroomNameData(c.getId(), c.getName(), c.getTeacherName(),
+                        c.getTeacherId(), c.isRegistered(), c.isaFinal(), professor))
+                .forEach(cn -> x.addData(gson, cn));
+        Database.getInstance().closeSession();
+        return x;
+    });
+    private Function<Request, Request> getScoresOfClassroom = x -> {
+        Classroom classroom = Database.getInstance().getClassroom(Long.parseLong(x.getLastData()));
+        Set<ClassroomRating> ratings = Database.getInstance().getClassroomRatings(classroom);
+        ratings.stream().
+            map(c -> new ClassroomRatingData(c)).
+            forEach(r -> x.addData(gson, r));
+        Database.getInstance().closeSession();
+        return x;
+    };
+    private Function<Request, Request> checkCanUserTakingClassPage = x -> {
+        Student student = Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
+        Faculty faculty = student.getFaculty();
+        x.addData(gson, faculty.isTimeToTakingClasses());
+        Database.getInstance().closeSession();
+        return x;
+    };
+    private Function<Request, Request> getReocamandedClassroom = x -> {
+        Student student = Database.getInstance().getStudent(Long.parseLong(x.getLastData()));
+        Set<Integer> passedCourseIds = getPassedCourseIds(student);
+        Database.getInstance().getFaculties().stream()
+                .forEach(f -> Database.getInstance().getClassrooms(f).stream()
+                        .filter(c -> c.getProgram() == student.getProgram())
+                        .filter(c -> goodClassroom(c, passedCourseIds))
+                        .map(c -> new ClassroomData(c))
+                        .forEach(cd -> x.addData(gson, cd)));
+        Database.getInstance().closeSession();
+        return x;
+    };
+
+    private Set<Integer> getPassedCourseIds(Student student) {
+        return Database.getInstance().getRegisteredCourses(student).stream()
+                .filter(r -> r.isFinial() && r.getScore() >= 10)
+                .map(r -> r.getClassroom().getCourse().getId()).collect(Collectors.toSet());
+    }
+
+    private boolean goodClassroom(Classroom classroom, Set<Integer> passCourseIds) {
+        if (classroom.getCapacity() >= classroom.getRegistrationNumber()) return false;
+        boolean ok = true;
+        for (Course course: classroom.getCourse().getPrerequisite()) {
+            if (!passCourseIds.contains(course.getId())) {
+                ok = false;
+            }
+        }
+        return ok;
+    }
+
     private Function<Request, Request> getRequestedData = x -> {
         switch (x.getType()) {
             case GET_WEEKLY_CLASS_DATA:
@@ -250,6 +390,16 @@ public class ChainHandelResponsibility {
                 return getProfessorMainPageData.apply(x);
             case GET_STUDENT_MAIN_PAGE_DATA:
                 return getStudentMainPageData.apply(x);
+            case GET_TEMPORARY_SCORES:
+                return getTempororyScorse.apply(x);
+            case GET_CLASSROOMS_FOR_SCORE_SHOW:
+                return getClassroomsNameData.apply(x);
+            case GET_SCORES_OF_CLASSROOM:
+                return getScoresOfClassroom.apply(x);
+            case CHECK_CAN_USER_TAKING_CLASS_PAGE:
+                return checkCanUserTakingClassPage.apply(x);
+            case GET_REOCAMANDED_CLASSROOM:
+                return getReocamandedClassroom.apply(x);
             default:
                 return new Request(null, new ArrayList<>());
         }
@@ -308,6 +458,24 @@ public class ChainHandelResponsibility {
                 break;
             case ADD_STUDENT:
                 addStudent.apply(request);
+                break;
+            case ADD_PROTEST:
+                addProtest.apply(request);
+                break;
+            case EDIT_RATING:
+                editRating.apply(request);
+                break;
+            case REGISTER_CLASSROOM:
+                registerClassroom.apply(request);
+                break;
+            case GO_FINAL_FOR_CLASSROOM:
+                goFinalForClassroom.apply(request);
+                break;
+            case SET_IS_TIME_FOR_TAKING_CLASSES:
+                setIsTimeForTakingClasses.apply(request);
+                break;
+            case ADD_REQUEST_TO_GET_CLASSROOM:
+                addRequestToGetClassroom.apply(request);
                 break;
         }
     }

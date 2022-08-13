@@ -5,7 +5,6 @@ import client.Client;
 import com.google.gson.Gson;
 import shared.ProfessorData;
 import shared.RequestType;
-import shared.UserType;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -165,6 +164,6 @@ public class ProfessorsList extends DemoSet implements MainPagePanel {
         Set<Long> oldProfessors = getRowsId().stream()
                 .filter(x -> x != 0 && !ProfessorDataSet.contains(x))
                 .collect(Collectors.toSet());
-        oldProfessors.forEach(x -> remove(x));
+        oldProfessors.forEach(x -> removeRow(x));
     }
 }

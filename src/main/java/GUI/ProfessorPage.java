@@ -1,11 +1,14 @@
 package GUI;
 
+import GUI.recordaffairs.RecordScores;
+import client.Client;
 import com.google.gson.Gson;
 import shared.MasterLevel;
 import shared.RequestType;
 import shared.UserType;
 
 import javax.swing.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ProfessorPage implements NormalUserPage {
@@ -23,15 +26,64 @@ public class ProfessorPage implements NormalUserPage {
     private JLabel faculty;
     private JLabel roomNumber;
     private JLabel masterLevel;
+    private JRadioButton defineTakingClassesForRadioButton;
+    private JComboBox selectedEnteryYear;
+    private JPanel programSelectField;
+    private JTextArea startTakingTime;
+    private JTextArea lengthOfTakingTime;
+    private JPanel selectTakeClassesTimePage;
+    private JPanel filterAndSelectTimeForTakingClassesPanel;
+    private JButton okForSetTakingClassesTime;
 
     private final JPanel out;
     private DemoSet studentAdder;
     public ProfessorPage(JPanel out) {
         main.addChangeListener(new SelectMenuHandler(this, panel));
+        addCartPanel(6, new RecordScores());
         this.out = out;
         studentAdderInit();
+        takeClassesPageInit();
         userId.setText(String.valueOf(UserConstantInformation.getInstance().getUserId()));
         faculty.setText(UserConstantInformation.getInstance().getFacultyName());
+    }
+
+
+    private void takeClassesPageInit() {
+        if (UserConstantInformation.getInstance().getUserType() != UserType.EducationalAssistant) {
+            selectTakeClassesTimePage.setVisible(false);
+        } else {
+            defineTakingClassesForRadioButton.addActionListener(e ->
+                    defineOrUndefineTakingClasses(defineTakingClassesForRadioButton.isSelected()));
+            getDataForSelectingTimePanelInit();
+        }
+    }
+    private void getDataForSelectingTimePanelInit() {
+        startTakingTime.setText(RealTime.dateAndTime(LocalDateTime.now()));
+        OptionCentricText programSelector = new OptionCentricText(OptionCentricText.OptionsFrom.Program);
+        programSelectField.add(programSelector);
+        okForSetTakingClassesTime.addActionListener(e -> sendSelectedTime(
+                (String) selectedEnteryYear.getSelectedItem(), programSelector.getSelectedIndex(),
+                startTakingTime.getText(), lengthOfTakingTime.getText()));
+    }
+
+    private void sendSelectedTime(String entryYear, int programIndex, String startTakingTimeText, String lengthOfTakingTimeText) {
+        try {
+            LocalDateTime startingTime = RealTime.readLocalDateTime(startTakingTimeText);
+            int length = Integer.parseInt(lengthOfTakingTimeText);
+            Client.getSender().send(RequestType.SET_TIME_FOR_TAKING_CLASSES,
+                    length, startingTime, programIndex, entryYear, UserConstantInformation.getInstance().getUserId());
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(panel, "Invalid input");
+        }
+
+    }
+
+    private void defineOrUndefineTakingClasses(boolean selected) {
+        Client.getSender().send(RequestType.SET_IS_TIME_FOR_TAKING_CLASSES,
+                    selected, UserConstantInformation.getInstance().getFacultyName());
+        filterAndSelectTimeForTakingClassesPanel.setVisible(selected);
+        selectTakeClassesTimePage.repaint();
+        selectTakeClassesTimePage.revalidate();
     }
 
     private void studentAdderInit() {

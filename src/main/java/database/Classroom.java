@@ -36,6 +36,10 @@ public class Classroom implements Serializable {
     private Set<ClassroomRating> studentsRating;
     @Column
     private LocalDateTime examDate;
+    @Column
+    private boolean registered = false;
+    @Column
+    private boolean aFinal = false;
 
     public Classroom() {
     }
@@ -76,6 +80,12 @@ public class Classroom implements Serializable {
     public int getRegistrationNumber() {
         return registrationNumber;
     }
+    public boolean isRegistered() {
+        return registered;
+    }
+    public boolean isaFinal() {
+        return aFinal;
+    }
 
     public Set<ClassroomRating> getStudentsRating() {
         return studentsRating;
@@ -111,6 +121,12 @@ public class Classroom implements Serializable {
     public void setRegistrationNumber(int registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
+    public void setRegistered(boolean registered) {
+        this.registered = registered;
+    }
+    public void setaFinal(boolean aFinal) {
+        this.aFinal = aFinal;
+    }
 
     @Override
     public String toString() {
@@ -122,8 +138,11 @@ public class Classroom implements Serializable {
                 ", teacher=" + teacher +
                 ", credit=" + credit +
                 ", capacity=" + capacity +
+                ", registrationNumber=" + registrationNumber +
                 ", studentsRating=" + studentsRating +
                 ", examDate=" + examDate +
+                ", registered=" + registered +
+                ", aFinal=" + aFinal +
                 '}';
     }
 
@@ -146,5 +165,8 @@ public class Classroom implements Serializable {
 
     public long getTeacherId() {
         return getTeacher() == null ? 0 : getTeacher().getId();
+    }
+    public String getTeacherName() {
+        return getTeacher() == null ? "" : getTeacher().getName();
     }
 }

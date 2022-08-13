@@ -10,6 +10,6 @@ public interface NormalUserPage extends MainPagePanel {
     }
     default void addCartPanel(int cartIndex, Updatable updatable) {
         getPanel().add(CART + cartIndex, updatable.getPanel());
-        getSelectMenuHandler().addUpdatable(updatable);
+        getSelectMenuHandler().addUpdatable(cartIndex, updatable);
     }
 }

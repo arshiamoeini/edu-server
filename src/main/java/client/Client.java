@@ -175,4 +175,8 @@ public class Client implements Sender {
             sendObject(new Request(type, data));
         }
     }
+
+    public void autoLogin() {
+        login(passDate);
+    }
 }

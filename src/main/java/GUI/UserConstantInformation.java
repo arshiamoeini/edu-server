@@ -61,4 +61,15 @@ public class UserConstantInformation {
         setUserType(data.getType());
         setFacultyName(data.getFacultyName());
     }
+
+    public JPanel getOutField() {
+        return handyButtons;
+    }
+
+    public void addHandyButton(ActionListener action) {
+        JButton button = new JButton("reconnect");
+        button.addActionListener(action);
+        handyButtons.add(button);
+        handyButtons.repaint();
+    }
 }

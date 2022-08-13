@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.requestmenu.BachelorStudentRequestsMenu">
+  <grid id="27dc6" binding="panel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="44c86" binding="bachelorStudent">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="6f5e4" binding="majorMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <tabbedpane title="majored"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="91436" binding="applyMajored" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="9cc8d" class="javax.swing.JButton" binding="addMajor">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="add"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="cf627" binding="majorList" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+          <grid id="1c444" binding="recommendationMenu" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="letter of recommendation"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="53d3e" binding="certificateMenu" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="certificate of employment"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="c421" class="javax.swing.JButton" binding="certificateButton">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <text value="Button"/>
+                </properties>
+              </component>
+              <component id="53ba6" class="javax.swing.JTextArea" binding="certificateText">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="be2d2" binding="withdrawalMenu" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="Withdrawal from education"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>

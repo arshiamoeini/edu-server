@@ -1,10 +1,9 @@
 package GUI;
 
-import GUI.REQUEST_MENU.SelectRequestMenuHandler;
+import GUI.requestmenu.SelectRequestMenuHandler;
 import client.Client;
 import com.google.gson.Gson;
 import shared.ClassroomData;
-import shared.Program;
 import shared.RequestType;
 import shared.UserType;
 
@@ -34,6 +33,7 @@ public class ListDesigner implements NormalUserPage {
     private JPanel subjectsListMenu;
     private JPanel listOfSubjects;
     private JPanel professorList;
+    private JRadioButton sortByCourseName;
     private OptionCentricText facultySelector = new OptionCentricText(OptionCentricText.OptionsFrom.Faculties);
     private OptionCentricText programSelector = new OptionCentricText(OptionCentricText.OptionsFrom.Program);
     private SubjectList subjectList;
@@ -52,7 +52,7 @@ public class ListDesigner implements NormalUserPage {
 
     private void professorListInit() {
         ProfessorsList professorsList = new ProfessorsList();
-        getSelectMenuHandler().addUpdatable(professorsList);
+        getSelectMenuHandler().addUpdatable(2, professorsList);
         this.professorList.add(professorsList.getPanel());
     }
 
@@ -72,6 +72,7 @@ public class ListDesigner implements NormalUserPage {
 
     private void sendRequestToGetFilteredResult() {
         Client.getSender().send(RequestType.GET_ClASS_ROOM_WITH_FILTER,
+                sortByCourseName.isSelected(),
                 sortRadio.isSelected(),
                 programSelector.getSelectedIndex(),
                 facultySelector.getSelectedItemName());
@@ -134,6 +135,6 @@ public class ListDesigner implements NormalUserPage {
         Set<Long> oldClassrooms = subjectList.getRowsId().stream()
                 .filter(x -> x != 0 && !ClassroomDataSet.contains(x)) //no topic
                 .collect(Collectors.toSet());
-        oldClassrooms.forEach(x -> subjectList.remove(x));
+        oldClassrooms.forEach(x -> subjectList.removeRow(x));
     }
 }

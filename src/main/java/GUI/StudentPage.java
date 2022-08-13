@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.recordaffairs.TemporaryScoresPage;
 import MODELS.EducationalStatus;
 import com.google.gson.Gson;
 import shared.Program;
@@ -33,6 +34,7 @@ public class StudentPage implements NormalUserPage {
 
     public StudentPage(JPanel out) {
         main.addChangeListener(new SelectMenuHandler(this, panel));
+        addCartPanel(6, new TemporaryScoresPage());
         this.out = out;
     }
 

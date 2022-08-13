@@ -26,6 +26,8 @@ public class Faculty implements Serializable {
     private Set<Course> courses;
     @OneToMany(mappedBy = "faculty")
     private Set<Classroom> classrooms;
+    @Column
+    private boolean timeToTakingClasses = false;
 
     public Faculty() {
     }
@@ -70,6 +72,9 @@ public class Faculty implements Serializable {
     public Set<Classroom> getClassrooms() {
         return classrooms;
     }
+    public boolean isTimeToTakingClasses() {
+        return timeToTakingClasses;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -89,6 +94,9 @@ public class Faculty implements Serializable {
     public void setClassrooms(Set<Classroom> classrooms) {
         this.classrooms = classrooms;
     }
+    public void setTimeToTakingClasses(boolean timeToTakingClasses) {
+        this.timeToTakingClasses = timeToTakingClasses;
+    }
 
     @Override
     public String toString() {
@@ -99,6 +107,7 @@ public class Faculty implements Serializable {
                 ", assistantId=" + assistantId +
                 ", courses=" + courses +
                 ", classrooms=" + classrooms +
+                ", timeToTakingClasses=" + timeToTakingClasses +
                 '}';
     }
 

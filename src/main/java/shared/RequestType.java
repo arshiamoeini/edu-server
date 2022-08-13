@@ -23,7 +23,22 @@ public enum RequestType {
     EDIT_PROFESSOR(false),
     ADD_STUDENT(false),
     GET_PROFESSOR_MAIN_PAGE_DATA(true),
-    GET_STUDENT_MAIN_PAGE_DATA(true);
+    GET_STUDENT_MAIN_PAGE_DATA(true),
+    GET_TEMPORARY_SCORES(true),
+    ADD_PROTEST(false),
+    GET_CLASSROOMS_FOR_SCORE_SHOW(true),
+    GET_SCORES_OF_CLASSROOM(true),
+    EDIT_RATING(false),
+    REGISTER_CLASSROOM(false),
+    GO_FINAL_FOR_CLASSROOM(false),
+    SET_IS_TIME_FOR_TAKING_CLASSES(false),
+    SET_TIME_FOR_TAKING_CLASSES(false),
+    CHECK_CAN_USER_TAKING_CLASS_PAGE(true),
+    ADD_REQUEST_TO_GET_CLASSROOM(false),
+    ADD_TAKE_REQUSET(true),
+    GET_REOCAMANDED_CLASSROOM(true),
+    REMOVE_TAKED_CLASSROOM(false),
+    GET_TAKED_CLASSROOM(true);
 
     RequestType(boolean needReply) {
         this.needReply = needReply;

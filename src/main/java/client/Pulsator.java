@@ -3,11 +3,9 @@ package client;
 import GUI.Updatable;
 import GUI.UserConstantInformation;
 import com.google.gson.Gson;
-import database.Faculty;
 import shared.RequestType;
 import shared.Response;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
@@ -34,18 +32,15 @@ public class Pulsator extends Thread {
                 if (offline) {
                     continue;
                 }
-                if (true) {//countPulses < 5) {
-                    RequestType requestType = setAndGetCurrentPage(null).getUpdateRequest();
-                  //  if (requestType == RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY) {
-                  //      Client.getInstance().send(requestType, selectedFacultyName);
-                   // } else {
-                        Client.getSender().send(requestType,
-                                UserConstantInformation.getInstance().getUserId());
-                   // }
-                    addPulseThatGetNotResponseOrReset(false);
+                if (countPulses < 5) {
+                    sendPulse();
                 } else {
                     offline = true;
-                    ping = 2000; //TODO default check and show
+                    UserConstantInformation.getInstance().addHandyButton( e -> {
+                        reconnect();
+                        offline = false;
+                    });
+                    setAndGetPing(2000); //TODO default check and show
                     System.out.println("your are offline");
                 }
             } catch (InterruptedException e) {
@@ -54,6 +49,26 @@ public class Pulsator extends Thread {
                 //throw new RuntimeException(e);
             }
         }
+    }
+
+    private void reconnect() {
+        setAndGetPing(1000);
+        UserConstantInformation.getInstance().getOutField().removeAll();
+        addPulseThatGetNotResponseOrReset(true);
+        Client.getInstance().autoLogin();
+    }
+
+    private void sendPulse() {
+        RequestType requestType = setAndGetCurrentPage(null).getUpdateRequest();
+        //  if (requestType == RequestType.GET_PROFESSORS_OF_SELECTED_FACULTY) {
+        //      Client.getInstance().send(requestType, selectedFacultyName);
+        // } else {
+        if (requestType != null) {
+            Client.getSender().send(requestType,
+                    UserConstantInformation.getInstance().getUserId());
+        }
+        // }
+        addPulseThatGetNotResponseOrReset(false);
     }
 
     private synchronized void addPulseThatGetNotResponseOrReset(boolean reset) {
